@@ -114,6 +114,45 @@ function formvalidation()
 /* validation === end */
 
 
+
+/* loginvalidation === start */
+function loginvalidation()
+{
+    // debugger;
+    if($("#logincontact").val() == '')
+    {
+        $("#logincontact_errormsg").show().html('Please enter your mobile number');
+        $("#logincontact").addClass('participate-border');
+        return false;
+    }
+    else if($("#logincontact").val().length != 10)
+    {
+        $("#logincontact_errormsg").show().html('Invalid mobile number');
+        $("#logincontact").addClass('participate-border');
+        return false;
+    }
+    else if (($("#logincontact").val().indexOf('9')) != 0 && ($("#logincontact").val().indexOf('8')) != 0 && ($("#logincontact").val().indexOf('7')) != 0 && ($("#logincontact").val().indexOf('6')) != 0) 
+    {
+        $("#logincontact_errormsg").show().html('Mobile number start with digits like 9, 8, 7, 6');
+        $("#logincontact").addClass('participate-border');
+        return false;
+    }
+    else if($("#agreeterm").prop("checked") == false)
+    {
+        $("#loginagreeterm_errormsg").show().html('Please agree tearm and condition');
+        return false;
+    }
+    else 
+    {
+        otppopupscreen(1);
+        $(".login-errormsg").hide().html('');
+        return true;
+    }
+}
+/* loginvalidation === end */
+ 
+
+
 /* otp valid === end */
 function otpvalidation()
 {
