@@ -8,6 +8,7 @@
 	<title>DARR NU DAARA</title>
 
     <link rel="stylesheet" href="css/fontawesome.min.css" />
+    <link rel="stylesheet" href="css/slick.min.css" />
     <link rel="stylesheet" href="css/main.min.css" />
     
 </head>
@@ -63,7 +64,7 @@
                                     <span>yashmathur@mail.com</span>
                                     <span>7838002120</span>
                                 </h3>
-                                <h4><a href="previous-entries.html">Previous Entries</a></h4>
+                                <h4><a href="previous-entries.html" target="_blank">Previous Entries</a></h4>
                                 <h5>
                                     <a href="#">
                                         <span>Log Out</span> 
@@ -92,78 +93,106 @@
 
 
 
- 
+    <!-- homebanner start -->
+    <section class="homebanner">
+        <span class="homeplaybtn"></span>
+    </section>
+    <!-- homebanner end -->
 
 
 
 
-    <!-- participatewrap start -->
-    <section class="participatewrap">
-        <div class="participate-inner">
-
-            <div class="participate-heading">
-                <i class="fa fa-angle-left" aria-hidden="true" onclick="window.open('index.html','_self')"></i>
-                PARTICIPATE NOW
+    <!-- homeparticipate start -->
+    <section class="homeparticipate">
+        <div class="homeparticipatecontainer">
+            <div class="homeparticipateleft">
+                <h2>DARR NU DAARA</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <aside>
+                    <a href="#">Participate Now</a>
+                </aside>
             </div>
-
-            <div class="participate-body">
-                <div class="participate-img">
-                    <img class="participate-img-desktop" src="images/participate_desktop.png" alt="participate" />
-                    <img class="participate-img-mobile" src="images/participate_mobile.png" alt="participate" />
-                </div>
-                <div class="participate-form">
-                    <div class="participate-field pfield50">
-                        <p>Full Name*</p>
-                        <input class="participate-input" type="text" name="fullname" id="fullname" placeholder="Full Name"  onkeypress="return isLetter(event)" />
-                        <span class="participate-errormsg" id="fullname_errormsg">Please Enter Full Name</span>
-                    </div>
-                    <div class="participate-field pfield50">
-                        <p>Mobile Number*</p>
-                        <input class="participate-input" type="text" name="contactnumber" id="contactnumber" placeholder="Mobile Number*" maxlength="10" onkeypress="return isNumber(event)" />
-                        <span class="participate-errormsg" id="contactnumber_errormsg">Please Enter Mobile Number</span>
-                    </div>
-                    <div class="participate-field pfield50">
-                        <p>E-mail Address*</p>
-                        <input class="participate-input" type="text" name="emailaddress" id="emailaddress" placeholder="E-mail Address" />
-                        <span class="participate-errormsg" id="emailaddress_errormsg">Please Enter  E-mail Address</span>
-                    </div>
-                    <div class="participate-field pfield50">
-                        <p>Select your entry type*</p>
-                        <select class="participate-select" name="entrytype" id="entrytype">
-                            <option value="0" disabled selected>Select</option>
-                            <option value="1">Upload pre-recorded video</option>
-                            <option value="2">Record video</option>
-                        </select>
-                        <span class="participate-errormsg" id="entrytype_errormsg">Please Select your entry type</span>
-                    </div>
-                    <div class="participate-field pfield100">
-                        <input type="checkbox" name="agreeterm" id="agreeterm" value="agreeterm" onclick="agreeterms()" />
-                        <label for="agreeterm" class="participate-agreeterm">By clicking submit, I agree to the</label> 
-                        <span class="termagree tn1" onclick="window.open('terms-and-conditions.html','_self');">Terms & Conditions</span> 
-                        <span  class="termagree  tn2">and</span> 
-                        <span  class="termagree tn3" onclick="window.open('privacy-policy.html','_self');">Privacy Policy</span>
-                        <span class="participate-errormsg" id="agreeterm_errormsg">Please Agree Terms & Conditions</span>
-                    </div>
-                    <div class="participate-field pfield100">
-                        <span class="participate-submit disabaled" onclick="formvalidation();">Next</span>
-                    </div>
-                </div>
+            <div class="homeparticipateright">
+                <ul>
+                    <li>
+                        <img src="images/participate_icon_1.png" alt="step 1">
+                        <p>
+                            <span>Lorem Ipsum</span>
+                            Lorem Ipsum is simply dummy text of the printing
+                        </p>
+                    </li>
+                    <li class="line"></li>
+                    <li>
+                        <img src="images/participate_icon_2.png" alt="step 2">
+                        <p>
+                            <span>Lorem Ipsum</span>
+                            Lorem Ipsum is simply dummy text of the printing
+                        </p>
+                    </li>
+                    <li class="line"></li>
+                    <li>
+                        <img src="images/participate_icon_3.png" alt="step 3">
+                        <p>
+                            <span>Lorem Ipsum</span>
+                            Lorem Ipsum is simply dummy text of the printing
+                        </p>
+                    </li>
+                </ul>
+                <aside>
+                    <a href="#">Participate Now</a>
+                </aside>
             </div>
-
         </div>
     </section>
-    <!-- participatewrap end -->
+    <!-- homeparticipate end -->
+
+
+
+
+    <!-- homecounter start -->
+    <section class="homecounter">
+            <h2>
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+            </h2>
+            <p>Participants</p>
+    </section>
+    <!-- homecounter end -->
+
+
+
     
 
 
- 
+
+    <!-- socialwall start -->
+    <section class="socialwall">
+        <div class="socialwall-insider">
+            <h2>
+                <b>SOCIAL WALL</b>
+                <span>#darrnudaara</span>
+            </h2>
+            <div class="socialslider">
+                <div class="socialitem"><img src="images/socialwall1.jpg" alt="socialwall" /></div>
+                <div class="socialitem"><img src="images/socialwall2.jpg" alt="socialwall" /></div>
+                <div class="socialitem"><img src="images/socialwall3.jpg" alt="socialwall" /></div>
+                <div class="socialitem"><img src="images/socialwall1.jpg" alt="socialwall" /></div>
+                <div class="socialitem"><img src="images/socialwall2.jpg" alt="socialwall" /></div>
+                <div class="socialitem"><img src="images/socialwall3.jpg" alt="socialwall" /></div>
+            </div>
+        </div>
+    </section>
+    <!-- socialwall end -->
     
 
 
     <!-- footer start -->
     <footer class="footer">
         <div class="footer-insider">
-            <p>Copyright &copy; 2022 Pepsico inc. all rights reserved.</p>
+            <p>Copyright &copy; 2023 Pepsico inc. all rights reserved.</p>
             <ul>
                 <li><a href="#">Privacy Policy </a></li>
                 <li> &nbsp; | &nbsp; </li>
@@ -178,23 +207,17 @@
 <!-- main end -->
 
 
-
-
-
 <!-- loader === start -->
 <div id="pageloader" class="pageloader">
     <div><i class="fa fa-spinner fa-spin"></i></div>
 </div>
 <!-- loader === end -->
 
-
-
-
-
+ 
  
 
-  
 <script src="scripts/jquery-min.js"></script>
+<script src="scripts/slick.min.js"></script>
 <script src="scripts/common.js"></script>
 </body>
 </html>

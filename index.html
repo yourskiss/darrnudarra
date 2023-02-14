@@ -1,252 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+  
+    <title>Navigation</title>
 
-	<title>DARR NU DAARA</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box;}
+section {  width: 100%; float: left; padding: 1rem;  }
+ 
+ul { width: 100%; float: left; display: flex; justify-content: space-evenly; align-items: flex-start; flex-wrap: wrap; }
+li { list-style: none; width: 22%; float: left;  }
+a { display: block; margin:0.5rem 0; padding:0.3rem; border:solid 1px #14A0D2; background: #fff; text-align: center; text-decoration: none; color: #14A0D2; font-size: 18px; font-weight: 500; font-family: Arial, Helvetica, sans-serif; }
+a:hover { background: #14A0D2;  color:#fff;  }
 
-    <link rel="stylesheet" href="css/main.min.css" />
-    
+ 
+@media only screen and (max-width:1023px) 
+{
+    li { width: 33%;  }
+}
+@media only screen and (max-width:599px) 
+{
+    li { width: 48%;  }
+}
+</style>
 </head>
 <body>
-<!-- main start -->
-<main class="main">
+<section>
  
-
-    <!-- header start -->
-    <header class="header">
-        <div class="headerInsider">
-            <a href="/"><img class="logo" src="images/logo.png" alt="logo" /></a>
-            <aside class="menubar" id="menubar">
-                <span></span><span></span><span></span>
-            </aside>
-            <div class="headerRight" id="menucontainer">
-                <div class="headercontainer">
-                    <ul>
-                        <li class="head_menu">
-                            <a href="#">
-                                <img src="images/menu-icon1.png" alt="ABOUT" />
-                                <span>ABOUT</span> 
-                                <i class="fa fa-angle-right" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li class="head_menu">
-                            <a href="participate-now.html">
-                                <img src="images/menu-icon2.png" alt="PARTICIPATE" />
-                                <span>PARTICIPATE NOW</span>
-                                <i class="fa fa-angle-right" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li class="head_menu">
-                            <a href="javascript:void(0);" onclick="showhidegetintouch('show');">
-                                <img src="images/menu-icon3.png" alt="GET IN TOUCH" />
-                                <span>GET IN TOUCH</span>
-                                <i class="fa fa-angle-right" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li class="login_before">
-                            <a href="login.html">
-                                <img src="images/user-icon.png" alt="LOG IN" />
-                                <span>LOG IN</span>
-                            </a>
-                        </li>
-                        <li class="login_after">
-                            <div class="login_after_head" id="login_after_head">
-                                <img id="userprofilepicture" src="images/user-icon.png" alt="user" />
-                                <span id="userprofilename">Yesh</span>
-                            </div>
-                            <div class="login_after_body" id="login_after_body">
-                                <h3>
-                                    <span>yashmathur@mail.com</span>
-                                    <span>7838002120</span>
-                                </h3>
-                                <h4><a href="https://google.com/" target="_blank">Previous Entries</a></h4>
-                                <h5>
-                                    <a href="#">
-                                        <span>Log Out</span> 
-                                        <img src="images/log-out.png" alt="log out" />
-                                    </a>
-                                </h5>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <div class="header-bottom-mobile">
-                        <p>
-                            <a href="https://www.youtube.com/user/MountainDewIndia?app=desktop" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
-                            <a href="https://www.facebook.com/mountaindewindia/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            <a href="https://twitter.com/mountaindewin?lang=en" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            <a href="https://www.instagram.com/mountaindewin/?hl=en" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                        </p>
-                        <h2>Copyright &copy; 2023 Pepsico inc. all rights reserved.</h2>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- header end -->
-
-
-
-    <!-- homebanner start -->
-    <section class="homebanner">
-        <span class="homeplaybtn"></span>
-    </section>
-    <!-- homebanner end -->
-
-
-
-
-    <!-- homeparticipate start -->
-    <section class="homeparticipate">
-        <div class="homeparticipatecontainer">
-            <div class="homeparticipateleft">
-                <h2>DARR NU DAARA</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                <aside>
-                    <a href="#">Participate Now</a>
-                </aside>
-            </div>
-            <div class="homeparticipateright">
-                <ul>
-                    <li>
-                        <img src="images/participate_icon_1.png" alt="step 1">
-                        <p>
-                            <span>Lorem Ipsum</span>
-                            Lorem Ipsum is simply dummy text of the printing
-                        </p>
-                    </li>
-                    <li class="line"></li>
-                    <li>
-                        <img src="images/participate_icon_2.png" alt="step 2">
-                        <p>
-                            <span>Lorem Ipsum</span>
-                            Lorem Ipsum is simply dummy text of the printing
-                        </p>
-                    </li>
-                    <li class="line"></li>
-                    <li>
-                        <img src="images/participate_icon_3.png" alt="step 3">
-                        <p>
-                            <span>Lorem Ipsum</span>
-                            Lorem Ipsum is simply dummy text of the printing
-                        </p>
-                    </li>
-                </ul>
-                <aside>
-                    <a href="#">Participate Now</a>
-                </aside>
-            </div>
-        </div>
-    </section>
-    <!-- homeparticipate end -->
-
-
-
-
-    <!-- homecounter start -->
-    <section class="homecounter">
-            <h2>
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
-                <span>5</span>
-            </h2>
-            <p>Participants</p>
-    </section>
-    <!-- homecounter end -->
-
-
-
-    
-
-
-
-    <!-- socialwall start -->
-    <section class="socialwall">
-        <div class="socialwall-insider">
-            <h2>
-                <b>SOCIAL WALL</b>
-                <span>#darrnudaara</span>
-            </h2>
-            <div class="socialslider">
-                <div class="socialitem"><img src="images/socialwall1.jpg" alt="socialwall" /></div>
-                <div class="socialitem"><img src="images/socialwall2.jpg" alt="socialwall" /></div>
-                <div class="socialitem"><img src="images/socialwall3.jpg" alt="socialwall" /></div>
-                <div class="socialitem"><img src="images/socialwall1.jpg" alt="socialwall" /></div>
-                <div class="socialitem"><img src="images/socialwall2.jpg" alt="socialwall" /></div>
-                <div class="socialitem"><img src="images/socialwall3.jpg" alt="socialwall" /></div>
-            </div>
-        </div>
-    </section>
-    <!-- socialwall end -->
-    
-
-
-    <!-- footer start -->
-    <footer class="footer">
-        <div class="footer-insider">
-            <p>Copyright &copy; 2023 Pepsico inc. all rights reserved.</p>
             <ul>
-                <li><a href="#">Privacy Policy </a></li>
-                <li> &nbsp; | &nbsp; </li>
-                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="popup.html" target="_blank">pop-up</a></li> 
+                <li><a href="home.html" target="_blank">Home</a></li>  
+                <li><a href="login.html" target="_blank">Login</a></li> 
+                <li><a href="participate-now.html" target="_blank">Participate</a></li>   
+                <li><a href="get-in-touch.html" target="_blank">Get in touch</a></li>   
+                <li><a href="404.html" target="_blank">404</a></li>       
+                <li><a href="Privacy-Policy.html" target="_blank">Privacy Policy</a></li>   
+                <li><a href="Terms-and-Conditions.html" target="_blank">Terms and Conditions</a></li>   
+                <li><a href="previous-entries.html" target="_blank">Previous Entries</a></li>  
+                <li><a href="single-entry.html" target="_blank">Single Entry.html</a></li>   
+                
             </ul>
-        </div>
-    </footer>
-    <!-- footer end -->
-    
-
-</main>
-<!-- main end -->
-
-
-<!-- loader === start -->
-<div id="pageloader" class="pageloader">
-    <div><i class="fa fa-spinner fa-spin"></i></div>
-</div>
-<!-- loader === end -->
-
-
-
-
-<!-- get in touch popup === start -->
-<div id="getintouchpopup" class="getintouchcontainer">
-    <article onclick="showhidegetintouch('hide');"></article>
-    <section>
-        <aside onclick="showhidegetintouch('hide');"><span></span><span></span></aside>
-        <h2>GET IN TOUCH</h2>
-        <h3>We’d love to hear from you. Here’s how you can reach us:</h3>
-        <ul>
-            <li>
-                <img src="images/icon_email.png" alt="Email" />
-                <p>
-                    <span>Email</span>
-                    <a href="mailto:consumer.feedback@pepsico.com">consumer.feedback@pepsico.com</a>
-                </p>
-            </li>
-            <li>
-                <img src="images/icon_call.png" alt="Call" />
-                <p>
-                    <span>Call</span>
-                    <a href="tel:1800224020">1800224020</a>
-                </p>
-            </li>
-        </ul>
-    </section>
-</div>
-<!-- get in touch popup === end -->
-
-
  
-
-<script src="scripts/jquery-min.js"></script>
-<script src="scripts/slick.min.js"></script>
-<script src="scripts/common.js"></script>
+</section>
 </body>
 </html>
- 

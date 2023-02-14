@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+
+	<title>DARR NU DAARA</title>
+
+    <link rel="stylesheet" href="css/fontawesome.min.css" />
+    <link rel="stylesheet" href="css/slick.min.css" />
+    <link rel="stylesheet" href="css/main.min.css" />
+
+
+<style>
+.popupul { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    float: left;
+    padding: 1rem 0;
+}
+.popupul li {
+    list-style: none;
+    margin: 0 1rem;
+    display: inline-block;
+    background-color: #000;
+    padding: 1rem;
+    transition: all .4s ease-out;
+    text-decoration: none;
+    line-height: 1;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    font-family:Arial,sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+}
+</style>
+    
+</head>
+<body>
+
+
+<ul class="popupul">
+    <!-- <li onclick="showhidegetintouch('show');">GET IN TOUCH</li> -->
+    <li onclick="showhideinstructions('show');">INSTRUCTIONS</li>
+    <li onclick="otppopupscreen('show');">OTP</li>
+    <li onclick="showhidemsg('wrong');">something went wrong</li>
+    <li onclick="showhidemsg('delete');">Delete entry</li>
+    <li onclick="showhidemsg('restart');">Want Restart</li>
+</ul>
+
+
+ 
+
+
+
+
+<!-- getintouch popup === start -->
+<div id="getintouchpopup" class="getintouchcontainer">
+    <article onclick="showhidegetintouch('hide');"></article>
+    <section>
+        <aside onclick="showhidegetintouch('hide');"><span></span><span></span></aside>
+        <h2>GET IN TOUCH</h2>
+        <h3>We’d love to hear from you. Here’s how you can reach us:</h3>
+        <ul>
+            <li>
+                <img src="images/icon_email.png" alt="Email" />
+                <p>
+                    <span>Email</span>
+                    <a href="mailto:consumer.feedback@pepsico.com">consumer.feedback@pepsico.com</a>
+                </p>
+            </li>
+            <li>
+                <img src="images/icon_call.png" alt="Call" />
+                <p>
+                    <span>Call</span>
+                    <a href="tel:1800224020">1800224020</a>
+                </p>
+            </li>
+        </ul>
+    </section>
+</div>
+<!-- getintouch popup === end -->
+
+
+
+
+<!-- instructions Popup === start -->
+<div id="instructionspopup" class="instructionsPopup">
+    <article onclick="showhideinstructions('hide');"></article>
+    <section>
+        <aside onclick="showhideinstructions('hide');"><span></span><span></span></aside>
+        <h2>INSTRUCTIONS</h2>
+        <ul>
+            <li data-id="1">Lorem Ipsum is simply dummy text</li>
+            <li data-id="2">Lorem Ipsum is simply dummy text</li>
+            <li data-id="3">Lorem Ipsum is simply dummy text</li>
+            <li data-id="4">Lorem Ipsum is simply dummy text</li>
+        </ul>
+    </section>
+</div>
+<!-- instructions Popup === end -->
+
+
+
+
+
+<!-- otppopup === start -->
+<div id="otppopup" class="otpcontainer">
+    <article></article>
+    <section>
+        <div class="otpback" onclick="otppopupscreen('hide');" title="back"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+        <aside>
+            <img src="images/icon_otp.png" alt="otp" />
+        </aside>
+        <h2>Enter Verification Code</h2>
+        <h3>Please enter the code sent to <span>+91XXXXXXX120</span></h3>
+        <div class="fourdigitotp">
+            <div>
+                <h6>
+                    <input type="text" name="textotp"  id="textotp" maxlength="4" onkeypress="return isNumber(event)" onkeyup="otpvalidation()" />
+                </h6>
+            </div>
+        </div>
+        <p id="otp_error_msg">The OTP entered is invalid. Please try again.</p>
+        <h4 id="resend_counter">You shall receive OTP in  <span id="resend_timer">0:30</span> Seconds</h4>
+        <h5 id="resend_button">Did not receive OTP? <span onclick="otppopupscreen('show');" >Resend OTP</span></h5>
+    </section>
+</div>
+<!-- otppopup === end -->
+
+
+
+
+<!-- somethingwentwrong === start -->
+<div id="somethingwentwrong" class="msgcontainer">
+    <article></article>
+    <section>
+        <aside><img src="images/error-dismiss.png" alt="Dismiss" /></aside>
+        <h2>Something went wrong</h2>
+        <h3>We are facing an error, please try again later.</h3>
+        <p>
+            <span class="msgbtngreen" onclick="showhidemsg('hide');">Dismiss</span>
+        </p>
+    </section>
+</div>
+<!-- somethingwentwrong === end -->
+
+
+<!-- deleteentry === start -->
+<div id="deleteentry" class="msgcontainer">
+    <article></article>
+    <section>
+        <aside><img src="images/error-dismiss.png" alt="Dismiss" /></aside>
+        <h2>Delete entry?</h2>
+        <h3>Lorem Ipsum is simply dummy text Lorem Ipsum</h3>
+        <p>
+            <span class="msgbtnred" onclick="showhidemsg('hide');">Yes, Delete</span>
+        </p>
+        <h4>
+            <span onclick="">No, Resume</span>
+        </h4>
+    </section>
+</div>
+<!-- deleteentry === end -->
+
+
+<!-- wantrestart === start -->
+<div id="wantrestart" class="msgcontainer">
+    <article></article>
+    <section>
+        <aside><img src="images/error-dismiss.png" alt="Dismiss" /></aside>
+        <h2>Do you want to restart?</h2>
+        <h3>If you go back now, you will lose your current recording</h3>
+        <p>
+            <span class="msgbtnred" onclick="showhidemsg('hide');">Yes, Restart</span>
+        </p>
+        <h4>
+            <span onclick="">No, Resume</span>
+        </h4>
+    </section>
+</div>
+<!-- wantrestart === end -->
+
+
+
+<script src="scripts/jquery-min.js"></script>
+<script src="scripts/common.js"></script>
+</body>
+</html>
+ 

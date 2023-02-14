@@ -7,6 +7,7 @@
 
 	<title>DARR NU DAARA</title>
 
+    <link rel="stylesheet" href="css/fontawesome.min.css" />
     <link rel="stylesheet" href="css/main.min.css" />
     
 </head>
@@ -40,7 +41,7 @@
                             </a>
                         </li>
                         <li class="head_menu">
-                            <a href="javascript:void(0);" onclick="showhidegetintouch('show');">
+                            <a href="get-in-touch.html">
                                 <img src="images/menu-icon3.png" alt="GET IN TOUCH" />
                                 <span>GET IN TOUCH</span>
                                 <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -62,7 +63,7 @@
                                     <span>yashmathur@mail.com</span>
                                     <span>7838002120</span>
                                 </h3>
-                                <h4><a href="#">Previous Entries</a></h4>
+                                <h4><a href="previous-entries.html">Previous Entries</a></h4>
                                 <h5>
                                     <a href="#">
                                         <span>Log Out</span> 
@@ -115,9 +116,9 @@
                 <div class="login-field">
                     <input type="checkbox" name="loginagreeterm" id="loginagreeterm" value="loginagreeterm" onclick="loginagreeterms()" />
                     <label for="loginagreeterm" class="login-termagree">By clicking submit, I agree to the</label> 
-                    <span class="login-term tn1" onclick="window.open('#','_self');">Terms & Conditions</span> 
+                    <span class="login-term tn1" onclick="window.open('terms-and-conditions.html','_self');">Terms & Conditions</span> 
                     <span  class="login-term  tn2">and</span> 
-                    <span  class="login-term tn3" onclick="window.open('#','_self');">Privacy Policy</span>
+                    <span  class="login-term tn3" onclick="window.open('privacy-policy.html','_self');">Privacy Policy</span>
                     <span class="login-errormsg" id="loginagreeterm_errormsg">Please agree terms & conditions</span>
                 </div>
                 <div class="login-field">
@@ -133,7 +134,7 @@
 
         </div>
     </section>
-    <!-- participatewrap end -->
+    <!-- loginin end -->
     
 
 
@@ -173,80 +174,8 @@
 
 
 
-
-<!-- get in touch popup === start -->
-<div id="getintouchpopup" class="getintouchcontainer">
-    <article onclick="showhidegetintouch('hide');"></article>
-    <section>
-        <aside onclick="showhidegetintouch('hide');"><span></span><span></span></aside>
-        <h2>GET IN TOUCH</h2>
-        <h3>We’d love to hear from you. Here’s how you can reach us:</h3>
-        <ul>
-            <li>
-                <img src="images/icon_email.png" alt="Email" />
-                <p>
-                    <span>Email</span>
-                    <a href="mailto:consumer.feedback@pepsico.com">consumer.feedback@pepsico.com</a>
-                </p>
-            </li>
-            <li>
-                <img src="images/icon_call.png" alt="Call" />
-                <p>
-                    <span>Call</span>
-                    <a href="tel:1800224020">1800224020</a>
-                </p>
-            </li>
-        </ul>
-    </section>
-</div>
-<!-- get in touch popup === end -->
-
-
-
-<!-- otppopup === start -->
-<div id="otppopup" class="otpcontainer">
-    <article></article>
-    <section>
-        <div class="otpback" onclick="otppopupscreen(0);" title="back">&#10229;</div>
-        <aside>
-            <img src="images/icon_otp.png" alt="otp" />
-        </aside>
-        <h2>Enter Verification Code</h2>
-        <h3>Please enter the code sent to <span>+91XXXXXXX120</span></h3>
-        <div class="fourdigitotp">
-            <div>
-                <h6>
-                    <input type="text" name="textotp"  id="textotp" maxlength="4" onkeypress="return isNumber(event)" onkeyup="otpvalidation()" />
-                </h6>
-            </div>
-        </div>
-        <p id="otp_error_msg">The OTP entered is invalid. Please try again.</p>
-        <h4 id="resend_counter">You shall receive OTP in  <span id="resend_timer">0:30</span> Seconds</h4>
-        <h5 id="resend_button">Did not receive OTP? <span onclick="otppopupscreen(1);" >Resend OTP</span></h5>
-    </section>
-</div>
-<!-- otppopup === end -->
-
-
-<!-- msgpopup === start -->
-<div id="msgpopup" class="msgcontainer">
-    <article onclick="showhidemsg('hide');"></article>
-    <section>
-        <aside>
-            <img src="images/error-dismiss.png" alt="Dismiss" />
-        </aside>
-        <h2>Something went wrong</h2>
-        <h3>We are facing an error, please try again later.</h3>
-        <p>
-            <span onclick="showhidemsg('hide');">Dismiss</span>
-        </p>
-    </section>
-</div>
-<!-- msgpopup === end -->
-
   
 <script src="scripts/jquery-min.js"></script>
-<script src="scripts/slick.min.js"></script>
 <script src="scripts/common.js"></script>
 </body>
 </html>

@@ -169,9 +169,8 @@ function otpvalidation()
 {
     if($("#textotp").val().length == 4)
     {
-        // $("#otp_error_msg").hide().html("");
         alert("otp submitted");
-        otppopupscreen(0);
+        otppopupscreen('hide');
     }
     else 
     {
@@ -183,12 +182,12 @@ function otpvalidation()
 /* otp === start */
 function otppopupscreen(val)
 {
-    if(val == 0) // hide
+    if(val == 'hide') // hide
      {
         $("#otppopup").fadeOut(500);
         $("body").css("overflow","auto");
      }
-     else if(val == 1) // show
+     else if(val == 'show') // show
      {
         $("#otppopup").fadeIn(500);
         $("body").css("overflow","hidden");
@@ -250,22 +249,46 @@ function showhidegetintouch(val)
 
 
 
+
+/* show/hide instructions === start */
+function showhideinstructions(val)
+{
+     if(val == 'show')
+     {
+        $("#instructionspopup").fadeIn(500);
+        $("body").css("overflow","hidden");
+     }
+     else if(val == 'hide')
+     {
+        $("#instructionspopup").fadeOut(500);
+        $("body").css("overflow","auto");
+     }
+     else 
+     {
+        // nothing
+     }
+}
+/* show/hide instructions === end */
+
+
+
+
 /* show/hide msg === start */
 function showhidemsg(val)
 {
-     if(val == 'somethingwentwrong')  // something wrong  confirmation msg
+     if(val == 'wrong')  // something wrong  confirmation msg
      {
-        $("#").fadeIn(500);
+        $("#somethingwentwrong").fadeIn(500);
         $("body").css("overflow","hidden");
      }
-     else if(val == 'deleteentry') // delete entry confirmation msg
+     else if(val == 'delete') // delete entry confirmation msg
      {
-        $("#").fadeIn(500);
+        $("#deleteentry").fadeIn(500);
         $("body").css("overflow","hidden");
      }
-     else if(val == 'wantrestart') // want to restart confirmation msg
+     else if(val == 'restart') // want to restart confirmation msg
      {
-        $("#").fadeIn(500);
+        $("#wantrestart").fadeIn(500);
         $("body").css("overflow","hidden");
      }
      else if(val == 'hide') // hide all confirmation msg

@@ -16,6 +16,7 @@
 <main class="main">
  
 
+
     <!-- header start -->
     <header class="header">
         <div class="headerInsider">
@@ -92,72 +93,44 @@
 
 
 
- 
 
-
-
-
-    <!-- participatewrap start -->
-    <section class="participatewrap">
-        <div class="participate-inner">
-
-            <div class="participate-heading">
-                <i class="fa fa-angle-left" aria-hidden="true" onclick="window.open('index.html','_self')"></i>
-                PARTICIPATE NOW
+    <!-- singleentrywrap start -->
+    <section class="singleentrywrap">
+        <div class="singleentryouter">
+            <div class="singleentrybackbtn">
+                <i class="fa fa-angle-left" aria-hidden="true" onclick="window.open('previous-entries.html','_self')"></i>
             </div>
-
-            <div class="participate-body">
-                <div class="participate-img">
-                    <img class="participate-img-desktop" src="images/participate_desktop.png" alt="participate" />
-                    <img class="participate-img-mobile" src="images/participate_mobile.png" alt="participate" />
+            <div class="singleentryinner">
+                <h2>GOOD JOB!</h2>
+                <h3>Lorem Ipsum is simply dummy text</h3>
+                <div class="singleentryvideo">
+                    <video controls>
+                        <source src="videos/thanks.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
-                <div class="participate-form">
-                    <div class="participate-field pfield50">
-                        <p>Full Name*</p>
-                        <input class="participate-input" type="text" name="fullname" id="fullname" placeholder="Full Name"  onkeypress="return isLetter(event)" />
-                        <span class="participate-errormsg" id="fullname_errormsg">Please Enter Full Name</span>
-                    </div>
-                    <div class="participate-field pfield50">
-                        <p>Mobile Number*</p>
-                        <input class="participate-input" type="text" name="contactnumber" id="contactnumber" placeholder="Mobile Number*" maxlength="10" onkeypress="return isNumber(event)" />
-                        <span class="participate-errormsg" id="contactnumber_errormsg">Please Enter Mobile Number</span>
-                    </div>
-                    <div class="participate-field pfield50">
-                        <p>E-mail Address*</p>
-                        <input class="participate-input" type="text" name="emailaddress" id="emailaddress" placeholder="E-mail Address" />
-                        <span class="participate-errormsg" id="emailaddress_errormsg">Please Enter  E-mail Address</span>
-                    </div>
-                    <div class="participate-field pfield50">
-                        <p>Select your entry type*</p>
-                        <select class="participate-select" name="entrytype" id="entrytype">
-                            <option value="0" disabled selected>Select</option>
-                            <option value="1">Upload pre-recorded video</option>
-                            <option value="2">Record video</option>
-                        </select>
-                        <span class="participate-errormsg" id="entrytype_errormsg">Please Select your entry type</span>
-                    </div>
-                    <div class="participate-field pfield100">
-                        <input type="checkbox" name="agreeterm" id="agreeterm" value="agreeterm" onclick="agreeterms()" />
-                        <label for="agreeterm" class="participate-agreeterm">By clicking submit, I agree to the</label> 
-                        <span class="termagree tn1" onclick="window.open('terms-and-conditions.html','_self');">Terms & Conditions</span> 
-                        <span  class="termagree  tn2">and</span> 
-                        <span  class="termagree tn3" onclick="window.open('privacy-policy.html','_self');">Privacy Policy</span>
-                        <span class="participate-errormsg" id="agreeterm_errormsg">Please Agree Terms & Conditions</span>
-                    </div>
-                    <div class="participate-field pfield100">
-                        <span class="participate-submit disabaled" onclick="formvalidation();">Next</span>
-                    </div>
+                <div class="singleentrycontainer">
+                    <p>Share:</p>
+                    <ul>
+                        <li><a href="https://www.facebook.com/mountaindewindia/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="https://twitter.com/mountaindewin?lang=en" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.instagram.com/mountaindewin/?hl=en" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="#" target=""><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+                    </ul>
+                    <aside>
+                        <a  href="videos/thanks.mp4" download>
+                            <span>Save video</span>
+                            <img src="images/download.png" alt="download" />
+                        </a>
+                    </aside>
                 </div>
             </div>
-
         </div>
     </section>
-    <!-- participatewrap end -->
-    
+    <!-- singleentrywrap end -->
 
 
  
-    
 
 
     <!-- footer start -->
@@ -181,6 +154,7 @@
 
 
 
+
 <!-- loader === start -->
 <div id="pageloader" class="pageloader">
     <div><i class="fa fa-spinner fa-spin"></i></div>
@@ -188,12 +162,9 @@
 <!-- loader === end -->
 
 
-
-
-
+ 
  
 
-  
 <script src="scripts/jquery-min.js"></script>
 <script src="scripts/common.js"></script>
 </body>
