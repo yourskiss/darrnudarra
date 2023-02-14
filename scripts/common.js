@@ -13,6 +13,8 @@ $(window).on('load', function()
 });
 /* onLoad === end */
 
+
+
 /* show/hide menu === start */
 $("#menubar").click(function(e)
 {
@@ -22,31 +24,41 @@ $("#menubar").click(function(e)
     {
         $("#menubar").removeClass("active");
         $("#menucontainer").slideUp(300);
+        $('body').css('overflow', 'auto');
     }
     else 
     {
         $("#menubar").addClass("active");
         $("#menucontainer").slideDown(300);
+        $('body').css('overflow', 'hidden');
     }
 });
 $('body').click(function(e) // close on click body
 {    
-    if($(window).width() < 499)
+    if($(window).width() < 768)
     {
-        if (e.target != $('#menubar') || e.target != $('#menucontainer')) 
+        if (e.target != $('#menubar') || e.target != $('#menucontainer') || e.target != $('.login_after')) 
         {
             $("#menubar").removeClass("active");
             $("#menucontainer").slideUp(300);
+            $('body').css('overflow', 'auto');
         }
     }
 });
+$("#login_after_head").click(function(e)
+{
+    e.preventDefault();
+    e.stopPropagation();
+    if($(this).hasClass("active")) {
+        $(this).removeClass("active");
+        $("#login_after_body").slideUp(300);
+    }
+    else {
+        $(this).addClass("active");
+        $("#login_after_body").slideDown(300);
+    }
+});
 /* show/hide menu === end */
-
-
- 
-
-
-
 
 
 /* validation === start */
@@ -122,29 +134,28 @@ function loginvalidation()
     if($("#logincontact").val() == '')
     {
         $("#logincontact_errormsg").show().html('Please enter your mobile number');
-        $("#logincontact").addClass('participate-border');
+        $("#logincontact").addClass('login-border');
         return false;
     }
     else if($("#logincontact").val().length != 10)
     {
         $("#logincontact_errormsg").show().html('Invalid mobile number');
-        $("#logincontact").addClass('participate-border');
+        $("#logincontact").addClass('login-border');
         return false;
     }
     else if (($("#logincontact").val().indexOf('9')) != 0 && ($("#logincontact").val().indexOf('8')) != 0 && ($("#logincontact").val().indexOf('7')) != 0 && ($("#logincontact").val().indexOf('6')) != 0) 
     {
         $("#logincontact_errormsg").show().html('Mobile number start with digits like 9, 8, 7, 6');
-        $("#logincontact").addClass('participate-border');
+        $("#logincontact").addClass('login-border');
         return false;
     }
-    else if($("#agreeterm").prop("checked") == false)
+    else if($("#loginagreeterm").prop("checked") == false)
     {
         $("#loginagreeterm_errormsg").show().html('Please agree tearm and condition');
         return false;
     }
     else 
     {
-        otppopupscreen(1);
         $(".login-errormsg").hide().html('');
         return true;
     }
@@ -161,7 +172,6 @@ function otpvalidation()
         // $("#otp_error_msg").hide().html("");
         alert("otp submitted");
         otppopupscreen(0);
-        showhidemsg('show');
     }
     else 
     {
@@ -238,17 +248,29 @@ function showhidegetintouch(val)
 
 
 
+
+
 /* show/hide msg === start */
 function showhidemsg(val)
 {
-     if(val == 'show')
+     if(val == 'somethingwentwrong')  // something wrong  confirmation msg
      {
-        $("#msgpopup").fadeIn(500);
+        $("#").fadeIn(500);
         $("body").css("overflow","hidden");
      }
-     else if(val == 'hide')
+     else if(val == 'deleteentry') // delete entry confirmation msg
      {
-        $("#msgpopup").fadeOut(500);
+        $("#").fadeIn(500);
+        $("body").css("overflow","hidden");
+     }
+     else if(val == 'wantrestart') // want to restart confirmation msg
+     {
+        $("#").fadeIn(500);
+        $("body").css("overflow","hidden");
+     }
+     else if(val == 'hide') // hide all confirmation msg
+     {
+        $(".msgcontainer").fadeOut(500);
         $("body").css("overflow","auto");
      }
      else 
@@ -263,7 +285,7 @@ function showhidemsg(val)
 
 
 
-/* term agree to enabled button === start */
+/* participate === term agree to enabled button === start */
 function agreeterms()
 {
     if($("#agreeterm").prop('checked'))
@@ -275,8 +297,26 @@ function agreeterms()
         $(".participate-submit").addClass("disabaled");
     }
 }
-/* term agree to enabled button === end */
+/* participate === term agree to enabled button === end */
  
+/* login === term agree to enabled button === start */
+function loginagreeterms()
+{
+    if($("#loginagreeterm").prop('checked'))
+    {
+        $(".login-submit").removeClass("disabaled");
+    }
+    else 
+    {
+        $(".login-submit").addClass("disabaled");
+    }
+}
+/* login === term agree to enabled button === end */
+ 
+
+
+
+
 
 
 // only number validation === start

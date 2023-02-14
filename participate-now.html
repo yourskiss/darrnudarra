@@ -25,27 +25,70 @@
             <div class="headerRight" id="menucontainer">
                 <div class="headercontainer">
                     <ul>
-                        <li><a href="#">ABOUT</a></li>
-                        <li><a href="participate-now.html">PARTICIPATE NOW</a></li>
-                        <li><a href="javascript:void(0);" onclick="showhidegetintouch('show');">GET IN TOUCH</a></li>
-                        <li><a href="login.html" class="loginbtn">LOG IN</a></li>
+                        <li class="head_menu">
+                            <a href="#">
+                                <img src="images/menu-icon1.png" alt="ABOUT" />
+                                <span>ABOUT</span> 
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="head_menu">
+                            <a href="participate-now.html">
+                                <img src="images/menu-icon2.png" alt="PARTICIPATE" />
+                                <span>PARTICIPATE NOW</span>
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="head_menu">
+                            <a href="javascript:void(0);" onclick="showhidegetintouch('show');">
+                                <img src="images/menu-icon3.png" alt="GET IN TOUCH" />
+                                <span>GET IN TOUCH</span>
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="login_before">
+                            <a href="login.html">
+                                <img src="images/user-icon.png" alt="LOG IN" />
+                                <span>LOG IN</span>
+                            </a>
+                        </li>
+                        <li class="login_after">
+                            <div class="login_after_head" id="login_after_head">
+                                <img id="userprofilepicture" src="images/user-icon.png" alt="user" />
+                                <span id="userprofilename">Yesh</span>
+                            </div>
+                            <div class="login_after_body" id="login_after_body">
+                                <h3>
+                                    <span>yashmathur@mail.com</span>
+                                    <span>7838002120</span>
+                                </h3>
+                                <h4><a href="#">Previous Entries</a></h4>
+                                <h5>
+                                    <a href="#">
+                                        <span>Log Out</span> 
+                                        <img src="images/log-out.png" alt="log out" />
+                                    </a>
+                                </h5>
+                            </div>
+                        </li>
                     </ul>
 
-                    <p>
-                        <a href="https://www.youtube.com/user/MountainDewIndia?app=desktop" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
-                        <a href="https://www.facebook.com/mountaindewindia/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="https://twitter.com/mountaindewin?lang=en" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        <a href="https://www.instagram.com/mountaindewin/?hl=en" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                    </p>
-                    <aside>
-                        <span>Copyright &copy; 2023 Pepsico inc. all rights reserved.</span>
-                    </aside>
+                    <div class="header-bottom-mobile">
+                        <p>
+                            <a href="https://www.youtube.com/user/MountainDewIndia?app=desktop" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                            <a href="https://www.facebook.com/mountaindewindia/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="https://twitter.com/mountaindewin?lang=en" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="https://www.instagram.com/mountaindewin/?hl=en" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        </p>
+                        <h2>Copyright &copy; 2023 Pepsico inc. all rights reserved.</h2>
+                    </div>
                     
                 </div>
             </div>
         </div>
     </header>
     <!-- header end -->
+
 
 
  
@@ -57,7 +100,10 @@
     <section class="participatewrap">
         <div class="participate-inner">
 
-            <div class="participate-heading">PARTICIPATE NOW</div>
+            <div class="participate-heading">
+                <i class="fa fa-angle-left" aria-hidden="true" onclick="window.open('index.html','_self')"></i>
+                PARTICIPATE NOW
+            </div>
 
             <div class="participate-body">
                 <div class="participate-img">
@@ -95,10 +141,10 @@
                         <span class="termagree tn1" onclick="window.open('#','_self');">Terms & Conditions</span> 
                         <span  class="termagree  tn2">and</span> 
                         <span  class="termagree tn3" onclick="window.open('#','_self');">Privacy Policy</span>
-                        <span class="participate-errormsg" id="agreeterm_errormsg">Please Upload your video</span>
+                        <span class="participate-errormsg" id="agreeterm_errormsg">Please Agree Terms & Conditions</span>
                     </div>
                     <div class="participate-field pfield100">
-                        <span class="participate-submit disabaled" onclick="formvalidation();">Submit</span>
+                        <span class="participate-submit disabaled" onclick="formvalidation();">Next</span>
                     </div>
                 </div>
             </div>
@@ -175,11 +221,14 @@
 
 
 
+
+
+
 <!-- otppopup === start -->
 <div id="otppopup" class="otpcontainer">
     <article></article>
     <section>
-        <div class="otpback" onclick="otppopupscreen(0);" title="back">&#10229;</div>
+        <div class="otpback" onclick="otppopupscreen(0);" title="back"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
         <aside>
             <img src="images/icon_otp.png" alt="otp" />
         </aside>
@@ -200,9 +249,11 @@
 <!-- otppopup === end -->
 
 
-<!-- msgpopup === start -->
-<div id="msgpopup" class="msgcontainer">
-    <article onclick="showhidemsg('hide');"></article>
+
+
+<!-- somethingwentwrong === start -->
+<div id="somethingwentwrong" class="msgcontainer">
+    <article></article>
     <section>
         <aside>
             <img src="images/error-dismiss.png" alt="Dismiss" />
@@ -210,11 +261,53 @@
         <h2>Something went wrong</h2>
         <h3>We are facing an error, please try again later.</h3>
         <p>
-            <span onclick="showhidemsg('hide');">Dismiss</span>
+            <span class="msgbtngreen"  onclick="showhidemsg('hide');">Dismiss</span>
         </p>
     </section>
 </div>
-<!-- msgpopup === end -->
+<!-- somethingwentwrong === end -->
+
+
+<!-- deleteentry === start -->
+<div id="deleteentry" class="msgcontainer">
+    <article></article>
+    <section>
+        <aside>
+            <img src="images/error-dismiss.png" alt="Dismiss" />
+        </aside>
+        <h2>Delete entry?</h2>
+        <h3>Lorem Ipsum is simply dummy text Lorem Ipsum</h3>
+        <p>
+            <span class="msgbtnred" onclick="showhidemsg('hide');">Yes, Delete</span>
+        </p>
+        <h4>
+            <span onclick="">No, Resume</span>
+        </h4>
+    </section>
+</div>
+<!-- deleteentry === end -->
+
+
+<!-- wantrestart === start -->
+<div id="wantrestart" class="msgcontainer">
+    <article></article>
+    <section>
+        <aside>
+            <img src="images/error-dismiss.png" alt="Dismiss" />
+        </aside>
+        <h2>Do you want to restart?</h2>
+        <h3>If you go back now, you will lose your current recording</h3>
+        <p>
+            <span class="msgbtnred" onclick="showhidemsg('hide');">Yes, Restart</span>
+        </p>
+        <h4>
+            <span onclick="">No, Resume</span>
+        </h4>
+    </section>
+</div>
+<!-- wantrestart === end -->
+
+
 
   
 <script src="scripts/jquery-min.js"></script>
