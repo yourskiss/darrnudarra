@@ -66,7 +66,7 @@
                                 </h3>
                                 <h4><a href="previous-entries.html">Previous Entries</a></h4>
                                 <h5>
-                                    <a href="#">
+                                    <a href="/">
                                         <span>Log Out</span> 
                                         <img src="images/log-out.png" alt="log out" />
                                     </a>
@@ -98,14 +98,27 @@
     <section class="uploadentrywrap bgcontainer">
         <div class="uploadentrycontainer">
  
-            <h2>upload entry</h2>
+            <h2>UPLOAD HERE</h2>
             <div class="uploadentrymain">
                 <div class="uploadentryleft">
-                    left
+                    <div class="upload_container" id="dragdropfile_container">
+                        <div class="upload_dragdrop">
+                            <img src="images/upload-icon.png" alt="drag drop" />
+                            <span>Drag and drop file</span>
+                        </div>
+                        <div class="upload_or">or</div>
+                        <div class="upload_browse">
+                            <input type="file" name="dragdropfile" id="dragdropfile" placeholder="Upload your video" accept="video/mp4, video/mov, video/avi"  onchange="fileValidation(this.id)" />
+                            <label for="dragdropfile">Browse</label>
+                        </div>
+                    </div>
+                    <div class="upload_name" id="dragdropfile_name">File name</div>
+                    <div class="upload_errormsg" id="dragdropfile_errormsg">Please Upload your video</div>
+                    <div class="upload_supported">
+                        Supported formats: MP4, AVI, MOV<br>Max. file limit: 10MB
+                    </div>
                 </div>
-                <div class="uploadentryright">
-                    right
-                </div>
+                <div class="uploadentryright"></div>
             </div>
             
         </div>
