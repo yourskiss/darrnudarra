@@ -99,9 +99,31 @@
 
 
     <!-- recordingscreen start -->
-    <section class="recordingscreenwrap">
+    <section class="recordingscreenwrap bgwithout">
         <div class="recordingscreencontainer">
-            <h2 style="color:#fff; height: 70vh;">Rrecording Screen</h2> 
+            
+            <div class="recordingholder">
+                    <i class="fa fa-angle-left" aria-hidden="true" onclick="window.open('home.html','_self')"></i>
+                    <div class="recordingvideopart">    
+                        <video id="video" autoplay="autoplay"></video>
+                    </div>
+                    <div class="recordingtextpart">
+                        <p>ਤੁਸੀ ਕਿਵੇਂ ਹੋ ਵੈ ਜਾਨ ਵਾਲੇਯਾ ੲਨ੍ਜ ਛਡ ਕੇ ਨਾ ਜਾਵੀਂ ਕੀਤੇ ਵਅਦੇ ਸਾਰੇ ਓ ਤੋੜ ਨਿਭਾਵੀਂ ਗਲਾਂ ਇਸ਼੍ਕ਼ ਦਿ ਕਿਤੀਯਂ ਸਨ੍ਗ ਰਾਤਾਂ ਕਡੀਯਾਂ ਵੈ ਜਾਨ ਵਾਲੇਯਾ ੲਨ੍ਜ ਛਡ ਕੇ ਨਾ ਜਾਵੀਂ ਕੀਤੇ ਵਅਦੇ ਸਾਰੇ ਓ ਤੋੜ ਨਿਭਾਵੀਂ ਗਲਾਂ ਇਸ਼੍ਕ਼ ਦਿ ਕਿਤੀਯਂ ਸਨ੍ਗ ਰਾਤਾਂ ਕਡੀਯਾਂ ਵੈ ਜਾਨ ਵਾਲੇਯਾ ੲਨ੍ਜ ਛਡ ਕੇ ਨਾ ਜਾਵੀਂ ਕੀਤੇ ਵਅਦੇ ਸਾਰੇ ਓ ਤੋੜ ਨਿਭਾਵੀਂ ਗਲਾਂ ਇਸ਼੍ਕ਼ ਦਿ ਕਿਤੀਯਂ ਸਨ੍ਗ ਰਾਤਾਂ ਕਡੀਯਾ</p>
+                    </div>
+            </div>
+            <div class="recordingcontrols">
+                <audio id="audio" src="lib/audio/audiofile.mp3"></audio>
+                        <input type="button" id="audio-btn" value="Play Audio" onclick="PlayAudio();" />&nbsp;
+                        <input type="button" id="start-btn" value="Start Recording" />&nbsp;
+                        <input type="button" id="stop-btn" value="Stop Recording" />&nbsp;
+                        <br />
+                        <a id="download-link" style="display: none;" target="_blank">Download</a>
+                        &nbsp;
+                        <a id="downloadffmpeg" style="display: none;" target="_blank">Download Recorded Video</a>
+
+            </div>
+
+            
         </div>
     </section>
     <!-- recordingscreen end -->
@@ -110,20 +132,25 @@
 
  
     
-
-
-    <!-- footer start -->
-    <footer class="footer">
-        <div class="footer-insider">
-            <p>Copyright &copy; 2022 Pepsico inc. all rights reserved.</p>
+    <!-- select song bottom start -->
+    <div class="selectsongbottom">
+        <section>
             <ul>
-                <li><a href="privacy-policy.html">Privacy Policy </a></li>
-                <li> &nbsp; | &nbsp; </li>
-                <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
+                <li class="active"><span>Part 1</span></li>
+                <li><span>Part 2</span></li>
+                <li><span>Part 3</span></li>
+                <li><span>Part 4</span></li>
             </ul>
-        </div>
-    </footer>
-    <!-- footer end -->
+            <!-- 
+            <p>Select a part to proceed</p>
+            <aside>
+                <span class="ssbtn_resume">Resume</span>
+                <span class="ssbtn_next disabaled">Next</span>
+            </aside>
+            -->
+        </section>
+    </div>
+    <!-- select song  start -->
     
 
 </main>
@@ -147,6 +174,108 @@
   
 <script src="scripts/jquery-min.js"></script>
 <script src="scripts/common.js"></script>
+<script src="scripts/jquery-ui.js"></script>
+
+<script>
+    const audioElement = document.querySelector('audio');
+    const videoElement = document.querySelector('video');
+    const startBtn = document.querySelector('#start-btn');
+    const stopBtn = document.querySelector('#stop-btn');
+    const downloadLink = document.querySelector('#download-link');
+    const downloadRecordVideoLink = document.querySelector('#downloadffmpeg');
+
+    ValidateForMediaRecorder();
+
+    function ValidateForMediaRecorder() {
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            console.log("MediaRecorder API is supported");
+            AccessUserCameraAndMicroPhone();
+        } else {
+            console.error("MediaRecorder API is not supported");
+        }
+    }
+
+    function AccessUserCameraAndMicroPhone() {
+
+        navigator.mediaDevices.getUserMedia({
+            video: true,
+            audio: false
+        }).then(function (stream) {
+            videoElement.srcObject = stream;
+            var mediaRecorder = new MediaRecorder(stream);
+            var chunks = [];
+
+            mediaRecorder.addEventListener("dataavailable", function (event) {
+                chunks.push(event.data);
+                var videoBlob = event.data;
+                var reader = new FileReader();
+                reader.onloadend = function () {
+                    var base64Video = reader.result;
+                    sendVideoToServer(base64Video);
+                };
+                reader.readAsDataURL(videoBlob);
+            });
+
+            mediaRecorder.addEventListener("stop", function () {
+                debugger;
+                var blob = new Blob(chunks, { type: "video/mp4" });
+                const url = URL.createObjectURL(blob);
+                downloadLink.href = url;
+                //downloadLink.download = 'recorded-video.mp4';
+                chunks = [];
+            });
+
+            startBtn.addEventListener('click', function () {
+                mediaRecorder.start();
+                startBtn.setAttribute('disabled', true);
+                stopBtn.removeAttribute('disabled');
+            });
+
+            stopBtn.addEventListener('click', function () {
+                mediaRecorder.stop();
+                stopBtn.setAttribute('disabled', true);
+                downloadLink.style.display = 'block';
+                var audio = document.getElementById("audio");
+                audio.pause();
+                audio.currentTime = 0;
+            });
+
+        });
+
+    }
+
+    function sendVideoToServer(base64Video) {
+        debugger;
+        var data = JSON.stringify({ videoData: base64Video });
+        PageMethods.SaveVideo(base64Video, onSucceed, onerror);
+    }
+
+    function onerror() {
+    }
+
+    function onSucceed(ds) {
+        console.log(ds);
+        var _val = ds.split(',');
+        downloadRecordVideoLink.style.display = 'block';
+        downloadRecordVideoLink.href = "lib/output/" + _val[1];
+        downloadLink.href = "lib/video/" + _val[1];
+        alert(_val[0]);
+        console.log(_val[2]);
+    }
+
+    function PlayAudio() {
+        var audio = document.getElementById("audio");
+        audio.play();
+        startBtn.removeAttribute('disabled');
+        stopBtn.removeAttribute('disabled');
+    }
+
+    function StopAudio() {
+        var audio = document.getElementById("audio");
+        audio.stop();
+    }
+
+</script>
 </body>
 </html>
  
