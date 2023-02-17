@@ -101,7 +101,68 @@
     <!-- select song  start -->
     <section class="selectsongwrap">
         <div class="selectsongcontainer">
-            <h2 style="color:#fff; height: 70vh;">Select Song </h2> 
+            
+            <div class="selectsonghead">
+                <div class="selectsongleft">
+                    <h2>SELECT A PART</h2>
+                    <aside><img src="images/song_poster.jpg" alt="poster" /></aside>
+                </div>
+                <div class="selectsongright">
+                    <h2>SELECT A PART</h2>
+                    <h3>
+                        <b>Song Name : </b>
+                        <span>Guru Randhawa</span>
+                    </h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+                </div>
+            </div>
+
+            <ul class="selectsonglist">
+                <li>
+                    <p>Song Title 1</p>
+                    <audio controls controlsList="nodownload noplaybackrate">  
+                        <source src="audios/sound1.mp3" type="audio/mpeg">  
+                        Your browser does not support the html audio tag.  
+                    </audio>  
+                </li>
+                <li>
+                    <p>Song Title 2</p>
+                    <audio controls controlsList="nodownload noplaybackrate">  
+                        <source src="audios/sound2.mp3" type="audio/mpeg">  
+                        Your browser does not support the html audio tag.  
+                    </audio>  
+                </li>
+                <li>
+                    <p>Song Title 3</p>
+                    <audio controls controlsList="nodownload noplaybackrate">  
+                        <source src="audios/sound3.mp3" type="audio/mpeg">  
+                        Your browser does not support the html audio tag.  
+                    </audio>  
+                </li>
+                <li>
+                    <p>Song Title 4</p>
+                    <audio controls controlsList="nodownload noplaybackrate">  
+                        <source src="audios/sound1.mp3" type="audio/mpeg">  
+                        Your browser does not support the html audio tag.  
+                    </audio>  
+                </li>
+                <li>
+                    <p>Song Title 5</p>
+                    <audio controls controlsList="nodownload noplaybackrate">  
+                        <source src="audios/sound2.mp3" type="audio/mpeg">  
+                        Your browser does not support the html audio tag.  
+                    </audio>  
+                </li>
+                <li>
+                    <p>Song Title 6</p>
+                    <audio controls controlsList="nodownload noplaybackrate">  
+                        <source src="audios/sound3.mp3" type="audio/mpeg">  
+                        Your browser does not support the html audio tag.  
+                    </audio>  
+                </li>
+            </ul>
+
+
         </div>
     </section>
     <!-- select song  end -->
@@ -111,19 +172,18 @@
  
     
 
-
-    <!-- footer start -->
-    <footer class="footer">
-        <div class="footer-insider">
-            <p>Copyright &copy; 2022 Pepsico inc. all rights reserved.</p>
-            <ul>
-                <li><a href="privacy-policy.html">Privacy Policy </a></li>
-                <li> &nbsp; | &nbsp; </li>
-                <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
-            </ul>
-        </div>
-    </footer>
-    <!-- footer end -->
+    <!-- select song bottom start -->
+    <div class="selectsongbottom">
+        <section>
+            <p>Select a part to proceed</p>
+            <aside>
+                <span class="ssbtn_resume">Resume</span>
+                <span class="ssbtn_next disabaled">Next</span>
+            </aside>
+        </section>
+    </div>
+    <!-- select song  start -->
+ 
     
 
 </main>
@@ -147,6 +207,30 @@
   
 <script src="scripts/jquery-min.js"></script>
 <script src="scripts/common.js"></script>
+
+<script>
+$(".selectsonglist li").click(function()
+{
+    if($(this).hasClass("active"))
+    {
+        $(".selectsonglist li").removeClass("active");
+    }
+    else 
+    {
+        $(".selectsonglist li").removeClass("active");
+        $(this).addClass("active");
+    }
+
+    if($(".selectsonglist li.active").length > 0)
+    {
+        $(".ssbtn_next").removeClass("disabaled");
+    }
+    else 
+    {
+        $(".ssbtn_next").addClass("disabaled");
+    }
+});
+</script>
 </body>
 </html>
  
