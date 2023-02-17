@@ -7,14 +7,7 @@
 	<title>test</title>
 
  <style>
-/**
- * tiny-player v.0.2.0
- * irubataru.com
- *
- * Copyright (c) 2018-2020 Jonas Rylund Glesaaen
- *
- * MIT License
- */
+
  html {
   line-height: 1.15;
   background-color: #39352a;
@@ -42,12 +35,7 @@
   color: #666050;
 }
 
-@media screen and (max-width: 480px) {
-  .iru-tiny-player .song-main-info {
-    margin: 2ex 1ex;
-    font-size: 1rem;
-  }
-}
+ 
 
 .iru-tiny-player .icon {
   margin-right: 1ex;
@@ -62,13 +50,7 @@
   color: #6d3827;
 }
 
-@media screen and (max-width: 480px) {
-  .iru-tiny-player .icon {
-    margin-right: 0.25ex;
-    min-width: 1rem;
-    flex-basis: 1rem;
-  }
-}
+ 
 
 .iru-tiny-player .icon:before {
   -moz-osx-font-smoothing: grayscale;
@@ -82,13 +64,7 @@
 .iru-tiny-player .song-main-info .icon.fa-stop {
   margin-right: 2ex;
 }
-
-@media screen and (max-width: 480px) {
-  .iru-tiny-player .song-main-info .icon.fa-stop {
-    margin-right: 0.5ex;
-  }
-}
-
+ 
 .iru-tiny-player .song-main-info .song-timer {
   margin: 0ex 1ex;
   white-space: nowrap;
@@ -175,26 +151,20 @@
   top: 0;
   color: #666050;
 }
-
-@media screen and (max-width: 480px) {
-  .iru-tiny-player .icon.fa-times {
-    margin: 2ex 1.5ex;
-    font-size: 1rem;
-  }
-}
+ 
 
  </style>
 </head>
 <body>
  
     <div class="maine">
-        <audio controls class="iru-tiny-player" data-title="80s Vibe">
+        <audio controls class="iru-tiny-player" data-title="1 Vibe">
           <source src="audios/sound1.mp3"  type="audio/mpeg">
         </audio>
-        <audio controls class="iru-tiny-player" data-title="80s Vibe">
+        <audio controls class="iru-tiny-player" data-title="2 Vibe">
             <source src="audios/sound2.mp3"  type="audio/mpeg">
         </audio>
-        <audio controls class="iru-tiny-player" data-title="80s Vibe">
+        <audio controls class="iru-tiny-player" data-title="3 Vibe">
             <source src="audios/sound3.mp3"  type="audio/mpeg">
         </audio>
       </div>
@@ -204,8 +174,7 @@
 
   
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/html5media/1.1.8/html5media.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/plyr/2.0.18/plyr.js"></script>
+ 
 <script>
  /**
  * tiny-player v.0.2.0
@@ -223,24 +192,12 @@
     var player = irubataru.tinyPlayer.createPlayerFromTags();
   });
 
-  /**
-   * Encapsulating namespace for tinyPlayer
-   * @namespace
-   */
+ 
   var irubataru = {
     tinyPlayer: {
-      /**
-       * Main player object that manages the audio players on the webpage.
-       * @type
-       */
+ 
       Player: class {
-        /**
-         * Constructs a player object from a list of audio elements.
-         * @constructor
-         *
-         * @param {Array} playlist
-         *   List of songs to attach to the player
-         */
+ 
         constructor(playlist) {
           this._playlist = playlist;
           this._index = 0;
@@ -250,12 +207,7 @@
           this.ns = irubataru.tinyPlayer;
         }
 
-        /**
-         * Play the specific song from the playlist
-         *
-         * @param {number} index
-         *   The item to play, currently selected if none is provided
-         */
+ 
         play(index) {
           var self = this;
 
@@ -269,12 +221,7 @@
           self._index = index;
         }
 
-        /**
-         * Pause a song from the Player
-         *
-         * @param {number} index
-         *   The item to pause, currently selected if none is provided
-         */
+ 
         pause(index) {
           var self = this;
 
@@ -287,12 +234,7 @@
           }
         }
 
-        /**
-         * Stop a song from the Player
-         *
-         * @param {number} index
-         *   The item to stop, currently selected if none is provided
-         */
+ 
         stop(index) {
           var self = this;
 
@@ -306,13 +248,7 @@
           self._index = index;
         }
 
-        /**
-         * Switch to song in index, stopping other songs currently playing, and
-         * pausing current if index == current.
-         *
-         * @param {number} index
-         *   The item to toggle to
-         */
+ 
         toggleTo(index) {
           var self = this;
           var sound = self._playlist[self._index].howl;
@@ -357,15 +293,7 @@
               ns._formatTime(seek_to) + " / " + ns._formatTime(sound.duration())
             );
         }
-
-        /**
-         * Update the duration bar to show how far into the song we are.
-         *
-         * @param {number} index
-         *   The item to toggle to
-         * @param {number} percentage
-         *   The position in the song specified by a percentage ([0,1])
-         */
+ 
         updateDuration(index, percentage) {
           var self = this;
           var html_elem = self._playlist[index].html_elem;
@@ -374,13 +302,7 @@
             .css("width", (percentage * 100 || 0) + "%");
         }
 
-        /**
-         * Set the volume of the Player, updating the volume slider of every
-         * player on the page.
-         *
-         * @param {number} val
-         *   The value of the volume, in the range [0, 100].
-         */
+ 
         volume(val) {
           var self = this;
 
@@ -400,10 +322,7 @@
           //sliderBtn.style.left = (window.innerWidth * barWidth + window.innerWidth * 0.05 - 25) + 'px';
         }
 
-        /**
-         * Update the player visuals to reflect the current position in the
-         * current song.
-         */
+ 
         step(timestamp) {
           var self = this;
           var ns = this.ns;
@@ -426,14 +345,7 @@
 
           var title = html_elem.find(".song-title");
 
-          // TODO: Find out how to solve this, #5
-          //if ((title.prop("scrollWidth") > (title.width() + 1)) && (
-          //timestamp > (self._animation_timestamp + 500))) {
-          //var title_string = title.html();
-          //title.html(title_string[1] + title_string.substr(2,
-          //title_string.length - 1) + title_string[0]);
-          //self._animation_timestamp = timestamp;
-          //}
+ 
 
           // If the sound is still playing, continue stepping.
           if (sound.playing()) {
@@ -442,12 +354,7 @@
         }
       },
 
-      /**
-       * Create a new Player by scanning the document for audio.simple-audio
-       * elements.
-       *
-       * @return {Player} Constructed Player object.
-       */
+ 
       createPlayerFromTags: function () {
         var ns = this;
         var playlist = [];
@@ -491,10 +398,7 @@
         return player;
       },
 
-      /**
-       * Create a jQuery object with the tinyPlayer HTML
-       * @return {jquery} Constructed player object
-       */
+ 
       createSongPlayer: function (title) {
         return $("<div>")
           .addClass("iru-tiny-player")
@@ -522,11 +426,7 @@
           );
       },
 
-      /**
-       * Adds all the events to the player object
-       * @param {Player} player
-       *   The player object to manipulate
-       */
+  
       _setupEvents: function (player) {
         var ns = this;
         var song_index = 0;
@@ -542,15 +442,7 @@
         });
       },
 
-      /**
-       * Initialise the Howl element
-       * @param {Player} player
-       *   The reference player object that will own the Howl
-       * @param {jquery} song
-       *   The HTML song object that references the constructed audio
-       * @return {Howl}
-       *   The constructed Howl
-       */
+ 
       _createHowlForPlayer: function (player, song) {
         var song_elem = song.html_elem;
         var ns = this;
@@ -597,15 +489,7 @@
         });
       },
 
-      /**
-       * Bind events to the HTML player object
-       * @param {Player} player
-       *   Target Player object
-       * @param {jquery} elem
-       *   The HTML element we want to add the events to
-       * @param {number} idx
-       *   Index of element in the Player playlist
-       */
+ 
       _bindPlayerControls: function (player, elem, idx) {
         // Bind the play button
         elem.find(".fa-play").click(function () {
@@ -726,13 +610,7 @@
         });
       },
 
-      /**
-       * Format time to a string
-       * @param {number} secs
-       *   Number of seconds
-       * @return {string}
-       *   Input formatted as "[hours:]minutes:seconds"
-       */
+ 
       _formatTime: function (secs) {
         var hours = Math.floor(secs / 3600) || 0;
         var minutes = Math.floor((secs - hours * 3600) / 60) || 0;
