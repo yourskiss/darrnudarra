@@ -113,16 +113,23 @@
             </div>
             <div class="recordingcontrols">
                 <audio id="audio" src="lib/audio/audiofile.mp3"></audio>
-                        <input type="button" id="audio-btn" value="Play Audio" onclick="PlayAudio();" />&nbsp;
+                <input type="button" id="audio-btn" value="Play Audio" onclick="PlayAudio();" />&nbsp;
+                <input type="button" id="audio-btn2" value="Stop Audio" onclick="StopAudio();" />&nbsp;
+                        
+
+
+
                         <input type="button" id="start-btn" value="Start Recording" />&nbsp;
                         <input type="button" id="stop-btn" value="Stop Recording" />&nbsp;
-                        <br />
-                        <a id="download-link" style="display: none;" target="_blank">Download</a>
-                        &nbsp;
-                        <a id="downloadffmpeg" style="display: none;" target="_blank">Download Recorded Video</a>
+                        
 
             </div>
 
+            <div class="recordingcontrols">
+                        <a id="download-link" style="display: none;" target="_blank">Download</a>
+                        &nbsp;
+                        <a id="downloadffmpeg" style="display: none;" target="_blank">Download Recorded Video</a>
+            </div>
             
         </div>
     </section>
@@ -272,7 +279,7 @@
 
     function StopAudio() {
         var audio = document.getElementById("audio");
-        audio.stop();
+        audio.pause();
     }
 
 </script>
