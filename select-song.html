@@ -118,7 +118,7 @@
                 </div>
             </div>
 
-            <ul class="selectsonglist">
+            <ul class="selectsonglist" id="selectsonglist">
                 <li>
                     <p>Song Title 1</p>
                     <audio controls controlsList="nodownload noplaybackrate">  
@@ -178,8 +178,7 @@
         <section>
             <p>Select a part to proceed</p>
             <aside>
-                <span class="ssbtn_resume">Resume</span>
-                <span class="ssbtn_next disabaled">Next</span>
+                <span class="ssbtn_next disabaled" id="songselectionnext" onclick="window.open('recording.html','_self')">Next</span>
             </aside>
         </section>
     </div>
@@ -210,25 +209,25 @@
 <script src="scripts/common.js"></script>
 
 <script>
-$(".selectsonglist li").click(function()
+$("#selectsonglist li").click(function()
 {
     if($(this).hasClass("active"))
     {
-        $(".selectsonglist li").removeClass("active");
+        $("#selectsonglist li").removeClass("active");
     }
     else 
     {
-        $(".selectsonglist li").removeClass("active");
+        $("#selectsonglist li").removeClass("active");
         $(this).addClass("active");
     }
 
-    if($(".selectsonglist li.active").length > 0)
+    if($("#selectsonglist li.active").length > 0)
     {
-        $(".ssbtn_next").removeClass("disabaled");
+        $("#songselectionnext").removeClass("disabaled");
     }
     else 
     {
-        $(".ssbtn_next").addClass("disabaled");
+        $("#songselectionnext").addClass("disabaled");
     }
 });
 </script>
