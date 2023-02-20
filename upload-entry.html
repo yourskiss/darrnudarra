@@ -172,8 +172,8 @@ var customDragandDrop = function (element) {
 		element.on("change", ".ksFileInput", function (e) {
             var extension = $(this).val().split('.').pop().toLowerCase();
             var validFileExtensions = ['mp4','avi','mov'];
-            console.log(e.target.files[0].size)
-            if (e.target.files[0].size > 10505620) // 1050562 - 10505620
+            let filesCount = $(this)[0].files.length;
+            if (e.target.files[0].size > 10505620) // 1050562 = 1mb
             {
                 $(this).parent('.ksFileOutput').siblings('.ksFileError').show().html("File size must be less than 10 MB");
                 $(this).prev(".ksFileName").hide().text('');
@@ -189,27 +189,13 @@ var customDragandDrop = function (element) {
                 $(this).val('');
                 return false;
             }
-             else
-             {
+            else 
+            {
                 $(this).parent('.ksFileOutput').siblings('.ksFileError').hide().html("");
-                let filesCount = $(this)[0].files.length;
-                if (1 === filesCount) {
-                    let fileName = $(this).val().split("\\").pop();
-                    $(this).prev(".ksFileName").show().text(fileName);
-                    $(this).next(".ksFileDelete").show();
-                } 
-                else if (filesCount > 1) 
-                {
-                    $(this).prev(".ksFileName").show().text(filesCount + " files selected");
-                    $(this).next(".ksFileDelete").show();
-                } 
-                else 
-                {
-                    $(this).prev(".ksFileName").hide().text('');
-                    $(this).next(".ksFileDelete").hide();
-                    $(this).val('');
-                }   
-             }
+                let fileName = $(this).val().split("\\").pop();
+                $(this).prev(".ksFileName").show().text(fileName);
+                $(this).next(".ksFileDelete").show();
+            }
 		});
 
 		// Delete selected file.
