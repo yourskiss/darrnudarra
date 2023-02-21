@@ -141,29 +141,29 @@
 
     
     
-    <!-- select song bottom start -->
-    <div class="selectsongbottom">
+    <!-- bottomsection start -->
+    <div class="bottomsection">
         <section>
-            <div class="selectsongbotinner" id="selectsongpart" style="display: block;">
-                <ul>
+            <div class="bottomcontainer" id="selectsongpart" style="display: block;">
+                <ul class="botul">
                     <li class="active"><span>Part 1</span></li>
                     <li><span>Part 2</span></li>
                     <li><span>Part 3</span></li>
                     <li><span>Part 4</span></li>
                 </ul>
             </div>
-            <div class="selectsongbotinner" id="selectsongnext" style="display: none;">
-                <div>
+            <div class="bottomcontainer" id="selectsongnext" style="display: none;">
+                <div class="botmain">
                     <p>Select a part to proceed</p>
                     <aside>
-                        <span class="ssbtn_resume">Resume</span>
-                        <span class="ssbtn_next disabaled">Next</span>
+                        <span class="ssbtn_resume" id="recording_resume">Resume</span>
+                        <span class="ssbtn_next" id="recording_next">Next</span>
                     </aside>
                 </div>
             </div>
         </section>
     </div>
-    <!-- select song  start -->
+    <!-- bottomsection  end  -->
     
 
 </main>
@@ -285,8 +285,8 @@
             $("#recording-btn").removeClass("stop_recording").addClass("start_recording"); 
             $("#recording-btn").val('Stop Recording');
             $("#start-btn").trigger("click");
-            $("#selectsongpart").hide();
-            $("#selectsongnext").show();
+            $("#selectsongpart").slideUp(200);
+            $("#selectsongnext").slideDown(200);
         }
         else 
         {
@@ -307,7 +307,7 @@
             startBtn.removeAttribute('disabled');
             stopBtn.removeAttribute('disabled');
             $("#audio-btn").val('Pause Audio'); 
-            const audioduration = audioElement.duration * 200; // seconds
+            const audioduration = audioElement.duration * 500; // seconds
             $('.recordingsroll').animate({ scrollTop: $('.recordingsroll')[0].scrollHeight }, audioduration );
         }
         else 

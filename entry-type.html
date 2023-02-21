@@ -98,75 +98,41 @@
 
 
 
-    <!-- select song  start -->
-    <section class="selectsongwrap">
-        <div class="selectsongcontainer">
+    <!-- entrytypewrap start -->
+    <section class="entrytypewrap bgcontainer">
+        <div class="entrytypecontainer">
             
-            <div class="selectsonghead">
+            <div class="entrytypeheading">
                 <i class="fa fa-angle-left" aria-hidden="true" onclick="window.open('home.html','_self')"></i>
-                <div class="selectsongleft">
-                    <h2>SELECT A PART</h2>
-                    <aside><img src="images/song_poster.jpg" alt="poster" /></aside>
+                <h2>SELECT ENTRY TYPE</h2>  
+                <p>Lorem Ipsum is simply dummy text</p>
+            </div>
+            
+            <div class="entrytypebody" id="entrytype">
+                
+                <div class="entrytypebox" id="video_upload">
+                    <aside>
+                        <img src="images/upload_video_icon.png" alt="UPLOAD A VIDEO" />
+                    </aside>
+                    <h3>UPLOAD A VIDEO</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                 </div>
-                <div class="selectsongright">
-                    <h2>SELECT A PART</h2>
-                    <h3>
-                        <b>Song Name : </b>
-                        <span>Guru Randhawa</span>
-                    </h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+
+                <div class="entrytypebox" id="video_record">
+                    <aside>
+                        <img src="images/record_video_icon.png" alt="RECORD A VIDEO" />
+                    </aside>
+                    <h3>RECORD A VIDEO</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                 </div>
+
             </div>
 
-            <ul class="selectsonglist" id="selectsonglist">
-                <li>
-                    <p>Song Title 1</p>
-                    <audio controls controlsList="nodownload noplaybackrate">  
-                        <source src="audios/sound1.mp3" type="audio/mpeg">  
-                        Your browser does not support the html audio tag.  
-                    </audio>  
-                </li>
-                <li>
-                    <p>Song Title 2</p>
-                    <audio controls controlsList="nodownload noplaybackrate">  
-                        <source src="audios/sound2.mp3" type="audio/mpeg">  
-                        Your browser does not support the html audio tag.  
-                    </audio>  
-                </li>
-                <li>
-                    <p>Song Title 3</p>
-                    <audio controls controlsList="nodownload noplaybackrate">  
-                        <source src="audios/sound3.mp3" type="audio/mpeg">  
-                        Your browser does not support the html audio tag.  
-                    </audio>  
-                </li>
-                <li>
-                    <p>Song Title 4</p>
-                    <audio controls controlsList="nodownload noplaybackrate">  
-                        <source src="audios/sound1.mp3" type="audio/mpeg">  
-                        Your browser does not support the html audio tag.  
-                    </audio>  
-                </li>
-                <li>
-                    <p>Song Title 5</p>
-                    <audio controls controlsList="nodownload noplaybackrate">  
-                        <source src="audios/sound2.mp3" type="audio/mpeg">  
-                        Your browser does not support the html audio tag.  
-                    </audio>  
-                </li>
-                <li>
-                    <p>Song Title 6</p>
-                    <audio controls controlsList="nodownload noplaybackrate">  
-                        <source src="audios/sound3.mp3" type="audio/mpeg">  
-                        Your browser does not support the html audio tag.  
-                    </audio>  
-                </li>
-            </ul>
-
+ 
 
         </div>
     </section>
-    <!-- select song  end -->
+    <!-- entrytypewrap end -->
     
 
 
@@ -180,7 +146,7 @@
                 <div class="botmain">
                     <p>Select a part to proceed</p>
                     <aside>
-                        <span class="ssbtn_next disabaled" id="songselectionnext" onclick="window.open('recording.html','_self')">Next</span>
+                        <span class="ssbtn_next disabaled" id="nextfromentrytype" onclick="nextfromentrytrype();">Next</span>
                     </aside>
                 </div>
             </div>
@@ -213,27 +179,43 @@
 <script src="scripts/common.js"></script>
 
 <script>
-$("#selectsonglist li").click(function()
+$("#entrytype .entrytypebox").click(function()
 {
     if($(this).hasClass("active"))
     {
-        $("#selectsonglist li").removeClass("active");
+        $("#entrytype .entrytypebox").removeClass("active");
     }
     else 
     {
-        $("#selectsonglist li").removeClass("active");
+        $("#entrytype .entrytypebox").removeClass("active");
         $(this).addClass("active");
     }
 
-    if($("#selectsonglist li.active").length > 0)
+    if($("#entrytype .entrytypebox.active").length > 0)
     {
-        $("#songselectionnext").removeClass("disabaled");
+        $("#nextfromentrytype").removeClass("disabaled");
     }
     else 
     {
-        $("#songselectionnext").addClass("disabaled");
+        $("#nextfromentrytype").addClass("disabaled");
     }
 });
+
+function nextfromentrytrype()
+{
+    if($("#video_record").hasClass('active'))
+    {
+        window.location.href = "recording.html";
+    }
+    else if($("#video_upload").hasClass('active'))
+    {
+        window.location.href = "upload-entry.html";
+    }
+    else
+    {
+        // nothing
+    }  
+}
 </script>
 </body>
 </html>
