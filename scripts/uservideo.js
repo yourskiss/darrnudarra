@@ -125,8 +125,8 @@
         {
             $("#audio-btn").removeClass("stop_audio").addClass("start_audio");
             audioElement.play();
-            const audioduration = audioElement.duration * 1000;  
-            $('.recordingsroll').animate({ scrollTop: $('.recordingsroll')[0].scrollHeight }, audioduration );
+            const audioduration = audioElement.duration * 500;  
+            $('.recordingsroll').stop(true,false).animate({ scrollTop: $('.recordingsroll')[0].scrollHeight }, audioduration );
         }
         else 
         {
@@ -183,13 +183,15 @@
     $("#bottomsongs li").click(function()
     {
         var datasrc = $(this).attr("data-src");
+        var dataid = $(this).attr("data-id");
         $("#bottomsongs li").removeClass('active');
         $(this).addClass("active");
+        $(".audiotext").fadeOut(300);
+        $(".audiotext[data-id='"+dataid+"']").fadeIn(300);
         $("#audio").attr('src', datasrc);
-        $(".recordingsroll").animate({ scrollTop: "0" }, 200);
+        $(".recordingsroll").stop(true,false).animate({ scrollTop: 0 }, 300);
         $("#audio-btn").removeClass("start_audio").addClass("stop_audio");
-        PlayPauseAudio()
-        
+        setTimeout(PlayPauseAudio, 500);
     });
 
 
