@@ -125,7 +125,7 @@
         {
             $("#audio-btn").removeClass("stop_audio").addClass("start_audio");
             audioElement.play();
-            const audioduration = audioElement.duration * 100;  
+            const audioduration = audioElement.duration * 1000;  
             $('.recordingsroll').animate({ scrollTop: $('.recordingsroll')[0].scrollHeight }, audioduration );
         }
         else 
