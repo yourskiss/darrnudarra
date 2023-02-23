@@ -101,7 +101,20 @@
             <h2>UPLOAD HERE</h2>
             <div class="uploadentrymain">
                 <div class="uploadentryleft">
-                    <input accept="video/mp4, video/mov, video/avi" class="ksFileInput" id="videoupload" type="file" name="videoupload[]" />
+                    <div class="vu_FileContainer">
+                        <input class="vu_FileInput" accept="video/mp4, video/mov, video/avi" id="videoupload" type="file" name="videoupload" />
+                        <label for="videoupload" class="vu_FileDropArea">
+                            <aside class='vu_FileDragDrop'>
+                                <img src="images/upload-icon.png" alt="dragdrop">
+                            </aside>
+                            <aside class='vu_FileChoose'>BROWSE</aside>
+                        </label>
+                        <div class="vu_FileOutput">
+                            <p>File name</p>
+                            <span onclick="deleteFile();"></span>
+                        </div>
+                        <aside class="vu_FileError"></aside>
+                    </div>
                     <div class="upload_supported">
                         Supported formats: MP4, AVI, MOV<br>Max. file limit: 10MB
                     </div>
@@ -152,69 +165,47 @@
 <script src="scripts/jquery-min.js"></script>
 <script src="scripts/common.js"></script>
 <script>
-var customDragandDrop = function (element) {
-		var element = $(element).wrap(
-			`<div class="ksFileContainer"><div class="ksFileDropArea"><aside class='ksFileDragDrop'><img src="images/upload-icon.png" alt="dragdrop"><h3>Drag and drop file</h3><p>or</p></aside><aside class='ksFileChoose'>BROWSE</aside></div><div class="ksFileOutput"><aside class="ksFileName"></aside>${element.outerHTML}<aside class="ksFileDelete"></aside></div><aside class="ksFileError"></aside></div>`
-		);
-		var element = element.parents(".ksFileContainer");
+ 
 
-		// Add class on focus and drage enter event.
-		element.on("dragenter focus click", ".ksFileInput", function (e) {
-			$(this).parents('.ksFileOutput').parents(".ksFileContainer").addClass("isactive");
-		});
-
-		// Remove class on blur and drage leave event.
-		element.on("dragleave blur drop", ".ksFileInput", function (e) {
-			$(this).parents('.ksFileOutput').parents(".ksFileContainer").removeClass("isactive");
-		});
-
-		// Show filename when change file.
-		element.on("change", ".ksFileInput", function (e) {
+ $("#videoupload").change(function (e) 
+ {
             var extension = $(this).val().split('.').pop().toLowerCase();
             var validFileExtensions = ['mp4','avi','mov'];
-            let filesCount = $(this)[0].files.length;
+            let fileName = e.target.files[0].name;
             if (e.target.files[0].size > 10505620) // 1050562 = 1mb
             {
-                $(this).parent('.ksFileOutput').siblings('.ksFileError').show().html("File size must be less than 10 MB");
-                $(this).prev(".ksFileName").hide().text('');
-                $(this).next(".ksFileDelete").hide();
+                $('.vu_FileError').show().html("File size must be less than 10 MB");
+                $(".vu_FileOutput").hide();
                 $(this).val('');
                 return false;
             }
             else if ($.inArray(extension, validFileExtensions) == -1) 
             {
-                $(this).parent('.ksFileOutput').siblings('.ksFileError').show().html("Allow only mp4/avi/mov file.");
-                $(this).prev(".ksFileName").hide().text('');
-                $(this).next(".ksFileDelete").hide();
+                $('.vu_FileError').show().html("Allow only mp4/avi/mov file.");
+                $(".vu_FileOutput").hide();
                 $(this).val('');
                 return false;
             }
             else 
             {
-                $(this).parent('.ksFileOutput').siblings('.ksFileError').hide().html("");
-                let fileName = $(this).val().split("\\").pop();
-                $(this).prev(".ksFileName").show().text(fileName);
-                $(this).next(".ksFileDelete").show();
+                $('.vu_FileError').hide().html("");
+                $(".vu_FileOutput p").show().text(fileName);
+                $(".vu_FileOutput span").show();
+                $(".vu_FileOutput").show();
+                return true;
             }
-		});
+});
+		 
+function deleteFile()
+{
+    $(".vu_FileOutput p").hide().text('');
+    $(".vu_FileOutput span").hide();
+    $(".vu_FileOutput").hide();
+	$(".vu_FileInput").val('');
+}
 
-		// Delete selected file.
-		element.on("click", ".ksFileDelete", function (e) {
-			let deleteElement = $(this).parents(".ksFileOutput");
-            deleteElement.find(".ksFileName").hide().text('');
-            deleteElement.find(".ksFileDelete").hide();
-			deleteElement.find(".ksFileInput").val('');
-		});
-	};
-
-	$.fn.kwtFileUpload = function (e) {
-		var _this = $(this);
-		$.each(_this, function (index, element) {
-			customDragandDrop(element);
-		});
-		return this;
-	};
-$("#videoupload").kwtFileUpload();
+ 
+ 
 
 </script>
 </body>

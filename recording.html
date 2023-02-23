@@ -121,14 +121,16 @@
                     </div>
             </div>
             <div class="recordingcontrols">
-                <audio id="audio" src="lib/audio/audiofile.mp3"></audio>
+                <audio id="audio" src="lib/audio/sound4.mp3" ></audio>
                 <input class="rbtn audioPlayPauseBTN stop_audio" type="button" id="audio-btn" value="Play Audio" onclick="PlayPauseAudio();" /> 
                 <span class="rbtn instructionrecording" onclick="instructionrecording();">instruction</span> 
-                <input class="rbtn recordingStartStopBTN stop_recording" type="button" id="recording-btn" value="Start Recording" onclick="StartStopRecording();" />
+                <input class="rbtn recordingStartStopBTN start_recording" type="button" id="recording-btn" value="Start Recording" onclick="StartStopRecording();" />
                 <input type="button" id="start-btn" value="Start Recording" style="display: none;" />
                 <input type="button" id="stop-btn" value="Stop Recording" style="display: none;" /> 
+                <input type="button" id="pause-btn" value="Pause Recording" style="display: none;" /> 
+                <input type="button" id="resume-btn" value="Resume Recording" style="display: none;" /> 
                 <span class="rbtn restartrecording" onclick="restartrecording();">restart recording</span>  
-                <span class="rbtn frontbackrecording" onclick="camerachangerecording();">front back camera</span>   
+                <span class="rbtn frontbackrecording" onclick="camerachangerecording();" style="display:none;">front back camera</span>   
             </div>
 
             <div class="recordingcontrols">
@@ -148,19 +150,18 @@
     <div class="bottomsection">
         <section>
             <div class="bottomcontainer" id="selectsongpart" style="display: block;">
-                <ul class="botul">
-                    <li class="active"><span>Part 1</span></li>
-                    <li><span>Part 2</span></li>
-                    <li><span>Part 3</span></li>
-                    <li><span>Part 4</span></li>
+                <ul class="botul" id="bottomsongs">
+                    <li class="active" data-id="1" data-src="lib/audio/sound4.mp3"><span>Song 1</span></li>
+                    <li data-id="2" data-src="lib/audio/sound3.mp3"><span>Song 2</span></li>
+                    <li data-id="3" data-src="lib/audio/sound2.mp3"><span>Song 3</span></li>
+                    <li data-id="4" data-src="lib/audio/sound1.mp3"><span>Song 4</span></li>
                 </ul>
             </div>
             <div class="bottomcontainer" id="selectsongnext" style="display: none;">
                 <div class="botmain">
                     <p>Select a part to proceed</p>
                     <aside>
-                        <span class="ssbtn_resume" id="recording_resume">Resume</span>
-                        <span class="ssbtn_next" id="recording_next">Next</span>
+                        <span class="ssbtn_next" id="recording_next" onclick="recordingStop();">Next</span>
                     </aside>
                 </div>
             </div>
@@ -171,7 +172,6 @@
 
 </main>
 <!-- main end -->
-
 
 
 
@@ -192,184 +192,9 @@
 <script src="scripts/common.js"></script>
 <script src="scripts/jquery-ui.js"></script>
 <script src="scripts/slimscroll.min.js"></script>
-<script>
-    const audioElement = document.querySelector('audio');
-    
-    const videoElement = document.querySelector('video');
-    const startBtn = document.querySelector('#start-btn');
-    const stopBtn = document.querySelector('#stop-btn');
-    const downloadLink = document.querySelector('#download-link');
-    const downloadRecordVideoLink = document.querySelector('#downloadffmpeg');
-
-    ValidateForMediaRecorder();
-
-    function ValidateForMediaRecorder() {
-        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-            console.log("MediaRecorder API is supported");
-            AccessUserCameraAndMicroPhone();
-        } else {
-            console.error("MediaRecorder API is not supported");
-        }
-    }
-
-    function AccessUserCameraAndMicroPhone() {
-
-        navigator.mediaDevices.getUserMedia({
-            video: true,
-            audio: false
-        }).then(function (stream) {
-            videoElement.srcObject = stream;
-            var mediaRecorder = new MediaRecorder(stream);
-            var chunks = [];
-
-            mediaRecorder.addEventListener("dataavailable", function (event) {
-                chunks.push(event.data);
-                var videoBlob = event.data;
-                var reader = new FileReader();
-                reader.onloadend = function () {
-                    var base64Video = reader.result;
-                    sendVideoToServer(base64Video);
-                };
-                reader.readAsDataURL(videoBlob);
-            });
-
-            mediaRecorder.addEventListener("stop", function () {
-                debugger;
-                var blob = new Blob(chunks, { type: "video/mp4" });
-                const url = URL.createObjectURL(blob);
-                downloadLink.href = url;
-                //downloadLink.download = 'recorded-video.mp4';
-                chunks = [];
-            });
-
-            startBtn.addEventListener('click', function () {
-                mediaRecorder.start();
-                startBtn.setAttribute('disabled', true);
-                stopBtn.removeAttribute('disabled');
-            });
-
-            stopBtn.addEventListener('click', function () {
-                mediaRecorder.stop();
-                stopBtn.setAttribute('disabled', true);
-                downloadLink.style.display = 'block';
-                var audio = document.getElementById("audio");
-                audio.pause();
-                audio.currentTime = 0;
-            });
-
-        });
-
-    }
-
-    function sendVideoToServer(base64Video) {
-        debugger;
-        var data = JSON.stringify({ videoData: base64Video });
-        PageMethods.SaveVideo(base64Video, onSucceed, onerror);
-    }
-
-    function onerror() {
-    }
-
-    function onSucceed(ds) {
-        console.log(ds);
-        var _val = ds.split(',');
-        downloadRecordVideoLink.style.display = 'block';
-        downloadRecordVideoLink.href = "lib/output/" + _val[1];
-        downloadLink.href = "lib/video/" + _val[1];
-        alert(_val[0]);
-        console.log(_val[2]);
-    }
-
-
-    function StartStopRecording()
-    {
-        if($("#recording-btn").hasClass("stop_recording"))
-        {
-            $("#recording-btn").removeClass("stop_recording").addClass("start_recording"); 
-            $("#recording-btn").val('Stop Recording');
-            $("#start-btn").trigger("click");
-            $("#selectsongpart").slideUp(200);
-            $("#selectsongnext").slideDown(200);
-        }
-        else 
-        {
-            $("#recording-btn").removeClass("start_recording").addClass("stop_recording");          
-            $("#recording-btn").val('Start Recording');
-            $("#stop-btn").trigger("click");
-        }  
-    }
+<script src="scripts/uservideo.js"></script>
  
-
-    function PlayPauseAudio()
-    {
-        var audio = document.getElementById("audio");
-        if($("#audio-btn").hasClass("stop_audio"))
-        {
-            $("#audio-btn").removeClass("stop_audio").addClass("start_audio");
-            audio.play();
-            startBtn.removeAttribute('disabled');
-            stopBtn.removeAttribute('disabled');
-            $("#audio-btn").val('Pause Audio'); 
-            const audioduration = audioElement.duration * 1000;
-            $('.recordingsroll').animate({ scrollTop: $('.recordingsroll')[0].scrollHeight }, audioduration );
-        }
-        else 
-        {
-            $("#audio-btn").removeClass("start_audio").addClass("stop_audio");
-            audio.pause();
-            $("#audio-btn").val('Play Audio');
-            $(".recordingsroll").stop();
-        }
-    }
-
-    
-
-    function restartrecording()
-    {
-        location.reload(true);
-    }
-
-    function instructionrecording()
-    {
-        alert('show recording instructions');
-    } 
-    
-    function camerachangerecording()
-    {
-        alert("change camera");
-    }
-         
-
-
-    if($(".recordingsroll").length > 0)
-    {
-        $('.recordingsroll').slimScroll({ 
-            width: "100%",
-            height: "100%",
-            size: "2px",
-            color: "#FFFFFF",
-            position: "right",
-            distance: "0",
-            start: "top",
-            opacity: 1,
-            alwaysVisible: false,
-            disableFadeOut: false,
-            railVisible: false,
-            allowPageScroll: false,
-            railColor: "#000000",
-            railOpacity: 1,
-            railDraggable: false,
-            railClass: "recordingsrollRail",
-            barClass: "recordingsrollBar",
-            wrapperClass: "recordingsrollContainer",
-            wheelStep: 10,
-            touchScrollStep: 100,
-            borderRadius: "3px",
-            railBorderRadius: "3px"
-        });
-    }
-    
-</script>
+ 
 </body>
 </html>
  

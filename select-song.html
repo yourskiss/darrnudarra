@@ -121,43 +121,29 @@
             <ul class="selectsonglist" id="selectsonglist">
                 <li>
                     <p>Song Title 1</p>
-                    <audio controls controlsList="nodownload noplaybackrate">  
-                        <source src="audios/sound1.mp3" type="audio/mpeg">  
+                    <audio controls preload controlsList="nodownload noplaybackrate">  
+                        <source src="lib/audio/sound1.mp3" type="audio/mpeg">  
                         Your browser does not support the html audio tag.  
                     </audio>  
                 </li>
                 <li>
                     <p>Song Title 2</p>
-                    <audio controls controlsList="nodownload noplaybackrate">  
-                        <source src="audios/sound2.mp3" type="audio/mpeg">  
+                    <audio controls preload controlsList="nodownload noplaybackrate">  
+                        <source src="lib/audio/sound2.mp3" type="audio/mpeg">  
                         Your browser does not support the html audio tag.  
                     </audio>  
                 </li>
                 <li>
                     <p>Song Title 3</p>
-                    <audio controls controlsList="nodownload noplaybackrate">  
-                        <source src="audios/sound3.mp3" type="audio/mpeg">  
+                    <audio controls preload controlsList="nodownload noplaybackrate">  
+                        <source src="lib/audio/sound3.mp3" type="audio/mpeg">  
                         Your browser does not support the html audio tag.  
                     </audio>  
                 </li>
                 <li>
                     <p>Song Title 4</p>
-                    <audio controls controlsList="nodownload noplaybackrate">  
-                        <source src="audios/sound1.mp3" type="audio/mpeg">  
-                        Your browser does not support the html audio tag.  
-                    </audio>  
-                </li>
-                <li>
-                    <p>Song Title 5</p>
-                    <audio controls controlsList="nodownload noplaybackrate">  
-                        <source src="audios/sound2.mp3" type="audio/mpeg">  
-                        Your browser does not support the html audio tag.  
-                    </audio>  
-                </li>
-                <li>
-                    <p>Song Title 6</p>
-                    <audio controls controlsList="nodownload noplaybackrate">  
-                        <source src="audios/sound3.mp3" type="audio/mpeg">  
+                    <audio controls preload controlsList="nodownload noplaybackrate">  
+                        <source src="lib/audio/sound4.mp3" type="audio/mpeg">  
                         Your browser does not support the html audio tag.  
                     </audio>  
                 </li>
@@ -213,6 +199,16 @@
 <script src="scripts/common.js"></script>
 
 <script>
+document.addEventListener("play", function(evt)
+{
+    if(window.$_currentlyPlaying && window.$_currentlyPlaying != evt.target)
+    {
+        window.$_currentlyPlaying.pause();
+    } 
+    window.$_currentlyPlaying = evt.target;
+}, true);
+
+
 $("#selectsonglist li").click(function()
 {
     if($(this).hasClass("active"))

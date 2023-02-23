@@ -23,13 +23,13 @@ $("#menubar").click(function(e)
     if($(this).hasClass("active"))
     {
         $("#menubar").removeClass("active");
-        $("#menucontainer").slideUp(300);
+        $("#menucontainer").slideUp(500);
         $('body').css('overflow', 'auto');
     }
     else 
     {
         $("#menubar").addClass("active");
-        $("#menucontainer").slideDown(300);
+        $("#menucontainer").slideDown(500);
         $('body').css('overflow', 'hidden');
     }
 });
@@ -40,20 +40,27 @@ $('body').click(function(e) // close on click body
         if (e.target != $('#menubar') || e.target != $('#menucontainer') || e.target != $('.login_after')) 
         {
             $("#menubar").removeClass("active");
-            $("#menucontainer").slideUp(300);
+            $("#menucontainer").slideUp(500);
             $('body').css('overflow', 'auto');
         }
+    }
+    if (e.target != $('#login_after_head') || e.target != $('#login_after_body') || e.target != $('.login_after')) 
+    {
+        $("#login_after_head").removeClass("active");
+        $("#login_after_body").slideUp(500);
     }
 });
 $("#login_after_head").click(function(e)
 {
     e.preventDefault();
     e.stopPropagation();
-    if($(this).hasClass("active")) {
+    if($(this).hasClass("active")) 
+    {
         $(this).removeClass("active");
         $("#login_after_body").slideUp(300);
     }
-    else {
+    else 
+    {
         $(this).addClass("active");
         $("#login_after_body").slideDown(300);
     }
