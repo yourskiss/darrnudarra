@@ -119,30 +119,30 @@
             </div>
 
             <ul class="selectsonglist" id="selectsonglist">
-                <li>
+                <li data-id="song1">
                     <p>Song Title 1</p>
-                    <audio controls preload controlsList="nodownload noplaybackrate">  
+                    <audio id="song1" controls preload controlsList="nodownload noplaybackrate">  
                         <source src="lib/audio/sound1.mp3" type="audio/mpeg">  
                         Your browser does not support the html audio tag.  
                     </audio>  
                 </li>
-                <li>
+                <li data-id="song2">
                     <p>Song Title 2</p>
-                    <audio controls preload controlsList="nodownload noplaybackrate">  
+                    <audio id="song2" controls preload controlsList="nodownload noplaybackrate">  
                         <source src="lib/audio/sound2.mp3" type="audio/mpeg">  
                         Your browser does not support the html audio tag.  
                     </audio>  
                 </li>
-                <li>
+                <li data-id="song3">
                     <p>Song Title 3</p>
-                    <audio controls preload controlsList="nodownload noplaybackrate">  
+                    <audio  id="song3" controls preload controlsList="nodownload noplaybackrate">  
                         <source src="lib/audio/sound3.mp3" type="audio/mpeg">  
                         Your browser does not support the html audio tag.  
                     </audio>  
                 </li>
-                <li>
+                <li data-id="song4">
                     <p>Song Title 4</p>
-                    <audio controls preload controlsList="nodownload noplaybackrate">  
+                    <audio  id="song4" controls preload controlsList="nodownload noplaybackrate">  
                         <source src="lib/audio/sound4.mp3" type="audio/mpeg">  
                         Your browser does not support the html audio tag.  
                     </audio>  
@@ -211,6 +211,9 @@ document.addEventListener("play", function(evt)
 
 $("#selectsonglist li").click(function()
 {
+    document.querySelectorAll('audio').forEach(el => el.pause());
+
+    var dataid = $(this).attr('data-id');
     if($(this).hasClass("active"))
     {
         $("#selectsonglist li").removeClass("active");
@@ -219,6 +222,7 @@ $("#selectsonglist li").click(function()
     {
         $("#selectsonglist li").removeClass("active");
         $(this).addClass("active");
+        document.getElementById(dataid).play();
     }
 
     if($("#selectsonglist li.active").length > 0)
