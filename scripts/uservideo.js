@@ -101,16 +101,19 @@
             $("#start-btn").trigger("click");
             $("#selectsongpart").slideUp(200);
             $("#selectsongnext").slideDown(200);
+            $("#recordingStatus").html("Recording is in progress…");
         }
         else if($("#recording-btn").hasClass("pause_recording"))
         {
             $("#recording-btn").removeClass("pause_recording").addClass("resume_recording");          
             $("#pause-btn").trigger("click");
+            $("#recordingStatus").html("Recording is paused");
         }  
         else if($("#recording-btn").hasClass("resume_recording"))
         {
             $("#recording-btn").removeClass("resume_recording").addClass("pause_recording");          
             $("#resume-btn").trigger("click");
+            $("#recordingStatus").html("Recording is in progress…");
         }  
         else 
         {
@@ -199,8 +202,10 @@
     {
         $("#stop-btn").trigger("click");
         $("#recording-btn").removeClass("resume_recording, pause_recording").addClass("start_recording"); 
+        $("#audio-btn").removeClass("start_audio").addClass("stop_audio");
         $("#selectsongpart").slideDown(200);
         $("#selectsongnext").slideUp(200);
+        $("#recordingStatus").html("Recording is ready!");
     }
  
     
