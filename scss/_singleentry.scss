@@ -1,0 +1,84 @@
+.singleentrywrap { 
+    padding:3rem 0;  @include fCC();
+    .singleentryouter { 
+        width:95%; max-width:1256px; margin: 0 auto; float:none;
+        .singleentrybackbtn { 
+            float: left; width: 100%; text-align: left;
+            i.fa-angle-left { 
+                float: left; cursor: pointer;  @include outT(); font-size: 30px; color: $white;
+                &:hover { color:  $green4; @include inT(); }
+             }
+        }
+        .singleentryinner { 
+            width:100%; max-width: 568px; margin: 0 auto; float:none;
+            h2 { margin: 0; width: 100%; float: left; text-align: center;  @include cutthecrap(); color: $white; font-size: 34px; line-height: 1; }
+            h3 { margin: 0.6rem 0 2rem 0; width: 100%; float: left; text-align: center;  @include latosemibold(); color: $white; font-size: 14px; line-height: 22px;  }
+            .singleentryvideo { 
+                width: 100%; float: left; background-color: $black10;
+                video { width: 100%; border: 0; margin: 0; padding: 0; float: left;}
+            }
+            .singleentrycontainer { 
+                width: 100%; float: left; margin:2rem 0 0 0;  
+                p { margin:0.5rem 0 0 0; width: auto; float: left; text-align: center;  @include latosemibold(); color: $white; font-size: 16px; line-height: 20px; }
+                ul { 
+                    @include fCC(); width: auto; float: left;  margin:0.4rem 1rem 0 1rem;
+                    li { 
+                        list-style: none; margin: 0 0.3rem; display: inline-block;
+                        a { 
+                            float: left; @include outT(); @include tdn(); background-color: $white; border-radius: 50%; width: 28px; height: 28px; line-height: 28px; font-size: 14px; font-weight: 400; color:$black;  text-align: center;
+                            &:hover { background-color: $green2; color:$white;  @include inT(); }
+                        }
+                    }
+                }
+                aside { 
+                    width: 143px; float:right;   
+                    a { 
+                        display: inline; width: auto; height:auto; padding:0.7rem 1.4rem;  @include fCC(); background-color: $green4; border: solid 1px $green4; @include latosemibold();  line-height: 1; font-size: 14px; color:$white;  text-align: center; cursor: pointer; overflow: hidden; text-decoration: none; @include outT();
+                        span { margin-right:0.5rem;  }
+                        img { filter:  brightness(0) invert(1); @include outT(); }
+                        &:hover {
+                            background-color: $black; color: $green4; @include inT();
+                            img { filter:none;  @include inT(); }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:1255px) 
+{
+ 
+}
+
+ 
+
+
+@media only screen and (max-width:599px) 
+{
+    .singleentrywrap {  
+        padding:2rem 0;
+        .singleentryinner { 
+            h2 { font-size:24px; }
+            h3 { margin: 0.5rem 0 1.5rem 0; font-size: 14px; }
+            .singleentrycontainer { 
+                margin:2rem 0 0 0;  @include fCS(); flex-wrap: wrap;
+                p { margin:0.1rem 0 0 0; font-size: 14px; line-height: 20px; }
+                ul { 
+                    margin:0 0 0 0.5rem;
+                    li { 
+                         margin: 0 0.3rem;
+                        a { width: 24px; height: 24px; line-height: 24px; font-size: 14px; }
+                    }
+                }
+                aside { 
+                    width: 100% !important; float:right; margin-top: 1.5rem; @include fCS(); 
+                }
+            }
+     
+        }  
+    }
+
+
+}

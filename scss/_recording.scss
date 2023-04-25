@@ -1,0 +1,140 @@
+.recordingscreenwrap { 
+    background-color: $black; padding:3rem 0 110px 0;  @include fCS();  
+    .recordingscreencontainer { 
+        width:95%; max-width: 1256px; margin: 0 auto; float:none;
+        .recordingholder { 
+            width: 100%; float: left; position: relative; @include fSS(); align-items: stretch; 
+            i.fa-angle-left {
+               z-index: 1; position: absolute; left: -100px;top: 0;color: #fff;font-size: 30px;line-height: 1;font-weight: 400;cursor: pointer;text-decoration: none; @include outT(); 
+               &:hover { color: $green4; @include inT(); }
+            }
+            .recordingvideopart { 
+                width:70%; float: left;
+                video { width: 100%; height:auto; float: left; border: 0; outline: none; margin: 0; padding: 0;}
+            }
+            .recordingtextpart {
+                overflow: hidden; position: relative; padding:3rem; width:30%; height:inherit; float: right; background-color:$green4; @include fCC();  @include latosemibold(); text-align: center; color: $white; font-size: 16px; line-height:30px; 
+                &:after { opacity: 0; content: '';  z-index:3; position: absolute; left: 0; top: 0; height:100%; width: 100%; background-color: $black;}
+                .recordingsrollContainer { z-index:2; position: absolute; width:100%; height: 100%; float: left; }
+                .recordingsroll { position: absolute; width:100%; height: 100%; float: left;  }
+                .recordingsrollBar { opacity: 0 !important; }
+                .recordingsrollRail { opacity: 0 !important; }
+                 .audiotext { display: none; float: left; width:100%;   }
+            }
+        }
+        .recordingcontrols { 
+            margin:1rem 0; width: 100%; float: left; @include fCC(); position: relative;
+            .rbtn { margin:0; padding: 0; outline: none; border: none; }
+            .audioPlayPauseBTN { 
+               position: absolute; left:0;  top:50%; transform: translateY(-50%);  width: 32px; height: 32px; font-size: 0; overflow: hidden; float: left; display: block; overflow: hidden; cursor: pointer; @include outT(); 
+                &.stop_audio {  background:url('../images/icon_audio_mute.png') no-repeat center center; @include inT(); }
+                &.start_audio {   background:url('../images/icon_audio_sound.png') no-repeat center center;  @include inT(); }
+            }
+            .instructionrecording { 
+                width: 32px; height: 32px; font-size: 0; overflow: hidden; float: left; display: block;  background:url('../images/help-circle-icon.png') no-repeat center center;  overflow: hidden; cursor: pointer; @include outT(); 
+                &:hover { @include inT(); }
+            }
+            .recordingStartStopBTN { 
+                margin: 0 2rem; width: 67px; height: 67px; font-size: 0; overflow: hidden; float: left; display: block;  overflow: hidden; cursor: pointer; @include outT(); 
+                &.stop_recording {  background:url('../images/icon_record_finish.png') no-repeat center center;  @include inT(); }
+                &.start_recording {  background:url('../images/icon_record_main.png') no-repeat center center;  @include inT();   }
+                &.pause_recording {  background:url('../images/icon_record_pause.png') no-repeat center center;   @include inT(); }
+                &.resume_recording {  background:url('../images/icon_record_stop.png') no-repeat center center;   @include inT(); }
+            }
+            .restartrecording { 
+                width: 32px; height: 32px; font-size: 0; overflow: hidden; float: left; display: block;  background:url('../images/redo-icon.png') no-repeat center center;  overflow: hidden; cursor: pointer; @include outT(); 
+                &:hover { @include inT(); }
+            }
+            .frontbackrecording { 
+                position: absolute; right:0; top:50%; transform: translateY(-50%);  width: 32px; height: 32px; font-size: 0; overflow: hidden; float: left; display: block;  background:url('../images/com-icon.png') no-repeat center center;  overflow: hidden; cursor: pointer; @include outT(); 
+                &:hover { @include inT(); }
+            }
+            .downloadrecording { 
+                width: auto; height: auto; border: solid 1px $green4;  float: left; padding:0.7rem 1.4rem; background-color:$green4;  @include latosemibold();  line-height: 1; font-size: 16px; font-weight: 400; color:$white;  text-align: center; @include outT(); cursor: pointer; text-decoration: none;
+                &:hover { background: $black2; color: $green4;  @include inT(); }
+            }
+            
+        }
+    }
+}
+
+
+@media only screen and (max-width:1565px) 
+{
+ 
+    .recordingscreenwrap {
+        padding-top: 1rem;
+        .recordingscreencontainer { max-width: 1000px; }
+    }
+    
+}
+
+
+@media only screen and (max-width:1255px) 
+{
+    .recordingscreenwrap {
+        .recordingscreencontainer { 
+            max-width: 900px; 
+            .recordingholder { 
+                i.fa-angle-left { left: -50px; }
+                .recordingvideopart { 
+                    width:65%;  
+                }
+                .recordingtextpart {
+                    padding:2rem; width:35%;                 
+                }
+            }
+        }
+    }
+    
+}
+ 
+@media only screen and (max-width:1023px) 
+{
+   
+    .recordingscreenwrap {
+        padding-top: 2.5rem;
+        .recordingscreencontainer { 
+            max-width: 100%; 
+            .recordingholder { 
+                i.fa-angle-left { left: 0; top: -2.5rem; }
+                .recordingvideopart { 
+                    width:60%;  
+                }
+                .recordingtextpart {
+                    padding:1.5rem; width:40%;  font-size: 14px; line-height:24px;
+                }
+            }
+        }
+    }
+
+}
+   
+
+@media only screen and (max-width:767px) 
+{
+ 
+
+    .recordingscreenwrap { 
+        padding: 1rem 0 90px 0;
+        .recordingscreencontainer { 
+            .recordingholder { 
+                flex-direction: column-reverse;
+                i.fa-angle-left { left: 0; top:0; font-size: 28px; }
+                .recordingvideopart { width: 100%; }
+                .recordingtextpart {
+                    padding:0 10% 1rem 10%; width:100%; height: 110px; background-color: $black;
+                }
+            }
+        }
+    }
+    
+}
+
+@media only screen and (max-width:599px) 
+{
+ 
+     
+
+
+}

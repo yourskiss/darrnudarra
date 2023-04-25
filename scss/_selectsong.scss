@@ -1,0 +1,114 @@
+.selectsongwrap { 
+    background-color: $black; padding:3rem 0 100px 0; width: 100%;  float: left;  @include fCC();  
+    .selectsongcontainer { 
+        width:95%; max-width: 1256px; margin: 0 auto; float:none;
+        .selectsonghead { 
+          width: 100%; float: left; position: relative;
+          i.fa-angle-left {
+             z-index: 1; position: absolute; left: -100px;top: 0;color: #fff;font-size: 30px;line-height: 1;font-weight: 400;cursor: pointer;text-decoration: none; @include outT(); 
+             &:hover { color: $green4; @include inT(); }
+            }
+          .selectsongleft { 
+            width: 142px; float: left;
+            h2 { display: none;  }
+            aside { 
+              float: left; width: 100%; text-align: center; 
+              img { width: 100%; margin: 0 auto; display: inline-block; border: 0; }
+            }
+          }
+          .selectsongright {
+            width: calc(100% - 170px); float: right;
+            h2 { width: 100%; float: left; text-align: left; padding: 0; margin:0;  @include cutthecrap(); color: $white; font-size: 30px; }
+            h3 { 
+              width: 100%; float: left; text-align: left; padding: 0; margin:2rem 0 1rem 0;  @include latosemibold(); color: $white; font-size: 14px; line-height:1.2; 
+              span { color: $white7;  }
+            }
+            p { width: 100%; float: left; text-align: left; padding: 0; margin:0;  @include latoregular(); color: $white7; font-size: 14px; line-height:1.2; }
+          }
+        }
+        .selectsonglist { 
+            width: 100%; float: left; margin: 2rem 0;
+            li { 
+              width: 100%; float: left; list-style: none; border-bottom: solid 1px $black4; padding:1.5rem; cursor: pointer;
+              &:last-child { border-bottom: none;}
+              &.active { background-color:$black4;}
+              audio { width: 100%; float: left; height: 32px; margin: 0; padding: 0; }
+              p { width: 100%; float: left; text-align: left; padding:0 0 1rem 0.5rem;  @include latosemibold(); color: $white7; font-size: 14px; line-height:1.2;  }
+            }
+        }
+    }
+}
+
+  audio::-webkit-media-controls-panel { background:none; background-color:none !important; border: none !important; border-radius: 0 !important; padding: 0; }
+  audio::-webkit-media-controls-enclosure {  background:none; background-color:none !important; border: none !important; border-radius: 0 !important; padding: 0;  }
+  audio::-webkit-media-controls-mute-button { background-color:$green4; border-radius: 50%; margin: 0; padding: 0; }
+  audio::-webkit-media-controls-play-button { background-color:$green4; border-radius: 50%;  margin-right: 1rem; }
+  audio::-webkit-media-controls-current-time-display { color:$white; }
+  audio::-webkit-media-controls-time-remaining-display {color:$white; }
+  audio::-webkit-media-controls-timeline-container { background-color:$white; opacity:1;  }
+  audio::-webkit-media-controls-timeline { background:$white; padding:10px; opacity:1; border-radius: 25px; margin-left: 1rem;  margin-right: 1rem; }
+  audio::-webkit-media-controls-volume-slider {background-color:$white;border-radius: 15px;padding: 5px; margin-top: 10px; }
+  audio::-internal-media-controls-overflow-button, audio::-webkit-media-controls-overflow-button { display: none; }
+
+
+@media only screen and (max-width:1565px) 
+{
+  .selectsongwrap .selectsongcontainer .selectsonghead i.fa-angle-left { left: 0rem; top: -3rem;}
+}
+
+
+@media only screen and (max-width:1023px) 
+{
+    .selectsongwrap { 
+      .selectsongcontainer { 
+          .selectsonghead { 
+            .selectsongright {  
+              h2 {  font-size:24px; }
+              h3 {  margin:1rem 0 0.5rem 0; font-size: 14px;  }
+              p {  font-size: 12px;   }
+            }
+          }
+          .selectsonglist { 
+              margin:1.5rem 0;
+              li { padding:1rem; }
+          }
+      }
+    } 
+}
+
+
+@media only screen and (max-width:599px) 
+{
+ 
+    .selectsongwrap { 
+      padding: 1rem 0 90px 0;
+      .selectsongcontainer { 
+          .selectsonghead { 
+            i.fa-angle-left { left: 0rem; top:0; font-size: 28px; }
+            .selectsongleft { 
+              width: 100%; text-align: center;
+                h2 { display: block; width: 100%; float: left; text-align: center; padding: 0; margin:0 0 1.5rem 0;  @include cutthecrap(); color: $white; font-size: 24px;  }
+                aside { 
+                  padding: 0.5rem 0; background: url('../images/song_banner_mobile.png') no-repeat center center; background-size: cover;
+                  img { width: 120px; }
+                }
+              }
+            .selectsongright {  
+              width: 100%;
+              h2 { display: none; }
+              h3 {  
+                  margin:0.3rem 0 0 0; font-size: 14px; text-align: center;
+                  span { margin-top: 0.4rem; display: block; font-size: 12px; }
+              }
+              p { display: none;   }
+            }
+          }
+          .selectsonglist { 
+              margin:1.5rem 0;
+              li { padding:1rem; }
+          }
+      }
+    } 
+ 
+
+}

@@ -1,0 +1,192 @@
+.header { 
+    z-index:8; position:fixed; left: 50%; top: 0; transform: translateX(-50%); @include fCC();  background-color: $black; width: 100%; max-width: 1600px; height: 106px;  
+    .headerInsider { 
+        @include fBC(); width: 95%;max-width: 1256px;margin: 0 auto;float:none;
+        .logo { width:120px; float: left; }
+        .menubar { display: none; }
+        .headerRight { 
+            display: block;  width: auto; float:right; 
+            .headercontainer { 
+                @include fEC();  width: auto; float:right; 
+                ul { 
+                    @include fCC(); width: auto; float: left;
+                    li { 
+                        list-style: none; margin: 0 0 0 2rem; display: inline-block;
+                        &.head_menu {
+                            a { 
+                                float: left; @include outT(); @include tdn();  line-height: 1; font-size: 14px; color:$white;  text-align: center; @include latosemibold();  
+                                &:hover { color: $green2;  @include inT(); }
+                                img { display: none; }
+                                i.fa-angle-right { display: none; }
+                            }
+                        }
+                        &.login_before { 
+                            a { 
+                                padding:0.7rem 1.4rem;height: auto;width: auto; border: solid 1px $green4; background-color: $green4; text-align: center; cursor: pointer;overflow: hidden; @include latosemibold();  line-height: 1;font-size: 16px;color: $white; @include fCC();  @include outT(); @include tdn();  
+                               &:hover { background-color: $black; color: $green4;  @include inT(); }
+                               img { display: none; }
+                           }
+                        }
+                        &.login_after { 
+                            position: relative;
+                            .login_after_head { 
+                                width: auto; position: relative; @include fSC(); padding-right: 1.6rem; cursor: pointer;
+                                &:after { content: "\f107"; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-family: FontAwesome; font-size: 22px; font-weight: 400; line-height: 1; color: $white;}
+                                img { width: 36px; border-radius: 50%; border: 0; margin: 0 0.4rem 0 0; }
+                                span { @include latobold();  line-height: 1; font-size: 14px; color:$green4; text-transform: uppercase; max-width: 66px; height: 14px; white-space: nowrap;overflow: hidden;text-overflow: ellipsis; }
+                                &.active { 
+                                    &:after { content: "\f106"; }
+                                }
+                            }
+                            .login_after_body { 
+                               display: none; position: absolute; top:70px; right: 0; z-index: 9; width: 210px; background-color: $black; padding:0 0 1rem 0;
+                               h3 { 
+                                    width: 100%; float: left; text-align: left;  padding:0 1rem;
+                                    span { display: block; padding: 0.5rem 0; line-height: 1; font-size: 14px; color:$white;  text-align: left; @include latosemibold();   }
+                                    a { 
+                                        @include outT(); @include tdn();  line-height: 1; font-size: 14px; color:$white;  text-align: left; @include latosemibold();  
+                                        &:hover { color: $green2;  @include inT(); }
+                                    }
+                               }
+                               h4 { 
+                                    width: 100%; float: left; text-align: left; margin: 1.5rem 0; padding:1rem; border-top:solid 1px $black9; border-bottom:solid 1px $black9;
+                                    a { 
+                                        @include outT(); @include tdn();  line-height: 1; font-size: 14px; color:$white;  text-align: left; @include latosemibold();  
+                                        &:hover { color: $green2;  @include inT(); }
+                                    }
+                                }
+                                h5 { 
+                                    width: 100%; float: left; text-align: left; padding:0 1rem;
+                                    a { 
+                                        @include fCC(); @include outT(); @include tdn(); float: left; width: auto; padding: 0.7rem 1.4rem; border: solid 1px $green4; background: $green4;  
+                                        span { margin-right: 0.4rem; line-height: 1; font-size: 14px; color:$white;  text-align: left; @include latosemibold(); @include outT();  }
+                                        img { width: 14px; border: 0; filter:  brightness(0) invert(1); @include outT();  } 
+                                        &:hover { 
+                                            background: $black2; @include inT(); 
+                                            span { color:$green2;  @include inT(); }
+                                            img { filter: none; @include inT(); }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .header-bottom-mobile { display: none; }
+
+            }
+        }
+    }
+    
+}
+ 
+ 
+@media only screen and (max-width:1255px) 
+{
+    .header .headerInsider .headerRight .headercontainer ul li.login_after .login_after_body { top: 59px;  }
+
+    .header { 
+        height: 82px;
+        .headerInsider { 
+            .logo { width:90px;  }
+            .headerRight { 
+                .headercontainer { 
+                    ul { 
+                        li { margin: 0 0 0 1.5rem; }
+                    }
+                }
+            }
+        }
+        
+    }
+    
+}
+
+@media only screen and (max-width:767px) 
+{
+    .header { 
+        .headerInsider { 
+            .menubar { 
+                display: block; float: right; width: 24px; height: 24px; position: relative; line-height: 1; cursor: pointer;
+                span {
+                   position: absolute;  float: left; width:100%; height: 2px; background-color: $white; line-height:2px; font-size: 2px; border-radius: 2px; padding: 0;
+                    &:first-child { left: 0;  top: 0; @include outT(); }
+                    &:nth-child(2) {left: 0;  top: 7px; @include outT(); }
+                    &:last-child { right: 0;  top: 14px; @include outT(); }
+                }
+                &.active { 
+                    span {
+                        &:first-child {top: 50%; transform: rotate(45deg);  @include inT(); }
+                        &:nth-child(2) { display: none; @include inT(); }
+                        &:last-child {top: 50%; transform: rotate(-45deg); @include inT(); }
+                    }
+                }
+            }
+            .headerRight { 
+                display: none; position: fixed;top: 82px; right: 0;width: 100%; background: $black3; padding:1rem 0 6rem 0; height: calc(100vh - 82px);
+                .headercontainer { 
+                    width: 100%; height: 100%; display: block; overflow: hidden; overflow-y: scroll;
+                    ul { 
+                        flex-direction: column-reverse; width: 100%; float: left;
+                        li { 
+                           margin: 0; display:block; width: 100%; float: left;
+                            &.head_menu {
+                                border-bottom: solid 1px $black5; padding: 1rem 5%;
+                                a { 
+                                   position: relative; @include fSC();  width: 100%; text-align: left; text-transform: uppercase; 
+                                    img { display:block; float: left; width: 30px; border: 0; }
+                                    span { display:block; float: left; margin-left: 0.5rem;  }
+                                    i.fa-angle-right { display:block; position: absolute; right: 5px; top: 50%; transform: translateY(-50%); color: $green5; font-size: 24px; font-weight: 400; @include outT(); }
+                                    &:hover { 
+                                        color: $white; 
+                                        i.fa-angle-right { right: 0; @include inT(); }
+                                    }
+                                }
+                            }
+                            &.login_before { 
+                                padding:1.5rem 5%; border-bottom: solid 1px $black5;
+                                a { 
+                                    padding:0;height: auto;width: auto; border:none; background-color:transparent; text-align: left;  font-size: 14px;color: $white; @include fSC(); color: $blue; 
+                                   &:hover {  color: $blue; }
+                                   img { display: block; float: left; width: 36px; }
+                                   span { margin-left: 0.7rem; padding-bottom: 2px; border-bottom: solid 1px $blue; }
+                               }
+                            }
+                            &.login_after { 
+                                position: relative; padding:1.5rem 5%; border-bottom: solid 1px $black5;
+                                .login_after_head { 
+                                    img { margin: 0 0.7rem 0 0; }
+                                    span { max-width: 100%; }
+                                }
+                                .login_after_body { 
+                                    float: left; position: relative; top:0px; width: 100%; background-color:transparent; padding:0;
+                                   h3 { 
+                                        padding-left: 48px; 
+                                         span { padding: 0.3rem 0;}
+                                   }
+                                   h4 { 
+                                     margin: 1rem 0; border-top:dotted 1px $black7; border-bottom:dotted 1px $black7; 
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .header-bottom-mobile { 
+                        display: block; position: absolute; bottom: 0; left: 0; width: 100%;
+                        p { 
+                            @include fCS(); width: 100%;float: left;
+                            a {
+                                display: inline-block; @include outT();text-decoration: none;background-color: $white;border-radius: 50%; margin: 0 0.3rem; width: 24px;height: 24px;line-height: 24px;font-size: 12px;font-weight: 400;color: $black;text-align: center;
+                                &:hover {background-color:$green4;color:$white;@include inT();}
+                            }
+                        }
+                        h2 {float: left;width: 100%;margin:1rem 0 1rem 0;text-align: center; @include latoregular(); color:$white; font-size: 10px; line-height: 1;}
+                    }
+                }
+            }
+        }
+        
+    }
+    
+}
+ 

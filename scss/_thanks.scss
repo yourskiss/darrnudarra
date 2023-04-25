@@ -1,0 +1,50 @@
+.thankswrap { 
+     padding:3rem 0;  @include fCC(); 
+    .thanksinsider { 
+        width:95%; max-width: 568px; margin: 0 auto; float:none;
+        h2 { margin: 0; width: 100%; float: left; text-align: center;  @include cutthecrap(); color: $white; font-size: 30px; line-height: 1; }
+        h3 { margin:0.7rem 0 2rem 0; width: 100%; float: left; text-align: center;  @include latomedium(); color: $white; font-size: 14px; line-height: 1.2;  }
+        .thanks_bottom { 
+            margin: 2rem 0 0 0;  width: 100%; float:right; text-align: center;  
+            a { 
+                display: inline-block; width: auto; height: auto; border: solid 1px $green4;  float: none; padding:0.7rem 1.4rem; background-color:$green4;  @include latosemibold();  line-height: 1; font-size: 14px;  color:$white;  text-align: center; @include outT(); cursor: pointer;  @include tdn();
+                &:hover { background: $black2; color: $green4;  @include inT(); }
+            }
+        }
+        .thanks_container { 
+            width: 100%; float: left; @include fSS(); align-items: stretch; min-height: 400px;
+            .thanks_left { 
+                width:65%; float: left;  background: $black2;
+            }
+            .thanks_right {
+                width:35%; float: left; background-color: $white6;
+            }
+        }
+ 
+    }
+}
+ 
+
+ 
+
+
+@media only screen and (max-width:599px) 
+{
+    .thankswrap {  
+        padding:2rem 0;
+        .thanksinsider { 
+            h2 { font-size:24px; }
+            h3 { margin: 0.5rem 0 1rem 0;  }
+            .thanks_bottom { margin: 1.5rem 0 0 0;   }
+            .thanks_container { 
+                flex-direction: column; min-height: auto;
+                .thanks_left { 
+                    width:100%;  min-height: 300px;
+                }
+                .thanks_right {
+                    width:100%;  min-height: 150px;
+                }
+            }
+        }  
+    }
+}

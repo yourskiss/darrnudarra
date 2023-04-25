@@ -1,0 +1,68 @@
+
+.bottomsection { 
+    position: fixed; left:50%; bottom: 0; transform:translateX(-50%); background-color: $black4; padding:1rem 0; width: 100%; max-width: 1600px; float: left;  @include fCC();  
+    section { 
+        width:95%; max-width: 1256px; margin: 0 auto; float:none; 
+        .bottomcontainer { 
+            width: 100%; float: left; 
+            .botmain {
+              @include fBC(); width: 100%; float: left; 
+              p { width: auto; float: left; text-align: left;  @include latosemibold(); color: $white; font-size: 14px; line-height:1;  }
+              aside { 
+                  width: auto; float: left; text-align: left; @include fEC();
+                  .ssbtn_resume { 
+                      margin:0 1rem; color: $blue2; text-decoration: none; cursor: pointer;  @include latosemibold(); line-height: 1; font-size: 14px; @include outT(); 
+                      &:hover { color: $white;  @include inT(); }
+                  }
+                  .ssbtn_next { 
+                    margin-left:1rem; position: relative; z-index: 1; overflow: hidden; width: auto; height: auto; border: solid 1px $green4;  float: left; padding:0.7rem 1.4rem; background-color:$green4;  @include latosemibold(); line-height: 1; font-size: 14px;   color:$white;  text-align: center; @include outT(); cursor: pointer; text-decoration: none;  @include fCC();
+                    &:hover { background: $black2; color: $green4;  @include inT(); }
+                    &.disabaled { color:$white; background-color:$gray; border-color: $gray;  user-select: none; pointer-events: none; }
+                  }
+              }
+            }
+            .botul { 
+              width: 100%; float: left; @include fBC();
+              li { 
+                width: 25%; float: left; list-style: none; border-right: solid 1px $white; padding:0.5rem 1rem; text-align: center; 
+                span {  cursor: pointer;  @include latomedium(); color: $white; font-size: 16px; line-height:1; }
+                &:last-child { border-right: none;}
+                &.active { 
+                  user-select: none; pointer-events: none;
+                  span { color:$green4; }
+                }
+              }
+            }
+          }
+    }
+}
+
+
+
+@media only screen and (max-width:599px) 
+{
+  
+
+
+    .bottomsection { 
+      section { 
+          .bottomcontainer {
+              .botmain {
+                  p { @include latobold();  }
+                  aside {  
+                      .ssbtn_resume { margin:0 0.5rem;  }
+                      .ssbtn_next { margin-left:0.5rem; padding:0.7rem 1.2rem;  }
+                  }
+              }
+              .botul { 
+                  li { 
+                    padding:0.5rem;  
+                    span { @include latobold();  font-size: 14px;  }
+                  }
+              } 
+          }
+      }
+  }
+
+
+}

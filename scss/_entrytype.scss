@@ -1,0 +1,77 @@
+.entrytypewrap { 
+    background-color: $black; padding:3rem 0 100px 0; width: 100%;  float: left;  @include fCC();  
+    .entrytypecontainer { 
+        width:95%; max-width: 1256px; margin: 0 auto; float:none;
+        .entrytypeheading { 
+            width: 100%; float: left; position: relative; margin-bottom: 2rem;
+            i.fa-angle-left {
+               z-index: 1; position: absolute; left:0px;top: 0;color: #fff;font-size: 30px;line-height: 1;font-weight: 400;cursor: pointer;text-decoration: none; @include outT(); 
+               &:hover { color: $green4; @include inT(); }
+            }
+            h2 { width: 100%; float: left; text-align: center; @include cutthecrap(); color: $white; font-size: 30px; }
+            p { width: 100%; float: left; text-align: center;  margin:1rem 0 0 0;  @include latomedium(); color: $white; font-size: 14px; line-height:1.2; }
+        }
+        .entrytypebody { 
+            width: 100%; float: left; @include fCS(); align-items: stretch; height: inherit;
+            .entrytypebox { 
+                position: relative; margin: 0 2rem; width: 436px; padding:5rem 3rem; float: left; background:url('../images/entrytypebg.png') no-repeat center center; background-size: 100% 100%; cursor: pointer;
+                &:after { content:''; z-index: 2; position: absolute; right: 1rem; top: 1rem; width: 22px; height: 22px; border-radius: 50%; background-color:$black11; }
+                &:before { opacity: 0; content:''; z-index: 3; position: absolute; transform: rotate(-45deg);right: 1.3rem; top: 1.4rem;transform: rotate(-45deg);width: 11px;height: 5px; border: solid 3px $white; border-right: 0; border-top: 0; }
+                aside { 
+                    width: 100%; float: left; text-align: center;
+                    img { width:auto; max-width:52px; margin:0 auto; display: inline-block;}
+                }
+                h3 { width: 100%; float: left; text-align: center; margin:1.5rem 0 0.5rem 0;  @include latobold(); color: $green4; font-size: 16px; line-height:20px; }
+                p { width: 100%; float: left; text-align: center; @include latoregular(); color: $white; font-size: 14px; line-height:22px; }
+                &.active { 
+                     &:after { background-color: $green4; }
+                     &:before { opacity: 1; }
+                }
+            }
+        }
+
+    }
+}
+
+
+
+
+@media only screen and (max-width:1023px) 
+{
+    .entrytypewrap {  
+        .entrytypecontainer { 
+            .entrytypebody {    
+                .entrytypebox { margin: 0 0.5rem; width:320px; padding:3rem 1rem;  }
+            }
+        }
+    }
+
+
+}
+
+
+@media only screen and (max-width:599px) 
+{
+    .entrytypewrap {  
+        padding:1rem 0 90px 0;
+        .entrytypecontainer { 
+            .entrytypeheading { 
+                margin-bottom: 1.5rem;
+                i.fa-angle-left {font-size: 24px;}
+                h2 { font-size: 24px; }
+                p { margin:0.7rem 0 0 0; }
+            }
+            .entrytypebody { 
+                flex-wrap: wrap;
+                .entrytypebox { 
+                     margin:0 0 2rem 0; width:100%; padding:4rem 3rem; 
+                    h3 { margin:1rem 0 0.5rem 0;  font-size: 14px;  }
+                    p {   font-size: 13px;  }
+
+                }
+            }
+    
+        }
+    }
+
+}

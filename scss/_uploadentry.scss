@@ -1,0 +1,75 @@
+
+.vu_FileContainer {
+    width: 100%; float: left; position: relative; padding:0;
+    .vu_FileInput {  display: none;}
+    .vu_FileDropArea { 
+        width: 100%;  float: left; text-align: center; 
+        .vu_FileDragDrop { 
+           width: 100%; float: left; margin-bottom:2rem; text-align: center; @include fCS(); flex-direction: column;
+           img { display: inline-block; width: 100%; max-width: 54px; margin: 0 auto; }
+       }
+       .vu_FileChoose {
+           display: inline-block; background: $green4; border: solid 1px $green4; padding:0.7rem 1.4rem; text-align: center;  @include outT(); color: $white; font-size: 14px; line-height: 1; @include latosemibold(); cursor: pointer; text-decoration: none;
+           &:hover { background: $black4; color: $green4; @include inT(); }
+       }
+   }
+   .vu_FileOutput { 
+        display: none; width: 100%;  float: left; text-align: center; margin-top: 2rem;  
+       p { display: none; width: calc(100% - 40px); float: left;  text-align: left;  color: $white; font-size: 14px; line-height:1; @include latomedium();white-space: nowrap;overflow: hidden;text-overflow: ellipsis; }
+       span {display: none; position: relative; float: right; width:25px;height:25px;cursor: pointer;  background: url('../images/icon_delete.png') no-repeat center center;}
+       span:after {content: "";position: absolute;opacity: 0;left: 50%;top: 50%;width: 100%;height: 100%;transform: translate(-50%, -50%) scale(0);background-color: #fff;border-radius: 50%;transition: 0.3s;}
+       span:hover:after {transform: translate(-50%, -50%) scale(2);opacity: 0.1;}    
+       .vu_button {
+          clear: both; display: inline-block; background: $green4; border: solid 1px $green4; padding:0.7rem 1.4rem; margin: 1rem auto 0 auto; text-align: center; text-transform: uppercase;  @include outT(); color: $white; font-size: 14px; line-height: 1; @include latosemibold(); cursor: pointer; text-decoration: none;
+            &:hover { background: $black4; color: $green4; @include inT(); }
+        }
+   }
+   .vu_FileError {  display: none; width: 100%; float: left;  margin-top: 1.5rem;   text-align: center;  color: $red2; font-size: 12px; line-height:1; @include latoregular();  }
+}
+
+
+.uploadentrywrap { 
+    padding:3rem 0;  @include fCC();
+    .uploadentrycontainer { 
+        width:95%; max-width:1256px; margin: 0 auto; float:none;
+            h2 { margin: 0 0 2rem 0; width: 100%; float: left; text-align: center;  @include cutthecrap(); color: $white; font-size: 30px; line-height: 1; }
+            .uploadentrymain { 
+                width: 100%; float: left; margin:0;  @include fBC(); align-items: stretch; 
+                .uploadentryleft { 
+                    float: left; background:transparent; width: 60%; padding:3rem; background: $black4 url('../images/participate-form-bg.png') no-repeat top left; background-size:cover;  
+                    .upload_supported { margin-top:1.5rem; width: 100%; float: left;  text-align: center;  color: $white; font-size: 12px; line-height:2; @include latoregular(); }
+                }
+                .uploadentryright { 
+                    float: left; background: $white2; width: 40%; 
+                }
+            }
+    }
+}
+
+@media only screen and (max-width:1255px) 
+{
+ 
+}
+
+
+
+@media only screen and (max-width:767px) 
+{
+    .uploadentrywrap { 
+        padding:2rem 0;
+        .uploadentrycontainer { 
+                h2 { margin: 0 0 1.5rem 0; font-size: 24px;  }
+                .uploadentrymain { 
+                    flex-wrap: wrap; align-items: flex-start;
+                    .uploadentryleft { 
+                        width: 100%; padding:3rem 2rem;
+                        .upload_supported { margin-top: 1rem; font-size: 12px; line-height:1.6;  }
+                    }
+
+                    .uploadentryright { 
+                        width: 100%; min-height: 200px; 
+                    }
+                }
+        }
+    }
+}

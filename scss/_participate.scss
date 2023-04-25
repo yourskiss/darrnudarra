@@ -1,0 +1,168 @@
+.participatewrap { 
+    padding:4rem 0;  @include fCC();  
+    .participate-inner { 
+        width:95%; max-width: 1256px; margin: 0 auto; float:none;
+        .participate-heading { 
+            width: 100%;  float: left; margin: 0 0 2rem 0; text-align: center;  @include cutthecrap(); color: $white; font-size: 30px; 
+            i.fa-angle-left { 
+                float: left; margin-top:0.3rem; cursor: pointer;  @include outT();
+                &:hover { color:  $green4; @include inT(); }
+             }
+        }
+        .participate-body { 
+            width: 100%;  float: left; @include fBC(); align-items: stretch; background: $black4 url('../images/participate-form-bg.png') no-repeat center right; background-size: cover;
+            .participate-img { 
+                width: 20%;  float: left; background: $black8;
+                .participate-img-desktop { display: none; width: 100%;  float: left; }
+                .participate-img-mobile { display:none;  width: 100%;  float: left; }
+            }
+            .participate-form { 
+                @include fBS(); flex-wrap: wrap; width: 80%; padding:1rem 3%; float: left; 
+                .participate-field { 
+                    float: left; margin-top: 1rem; margin-bottom: 1rem;
+                    &.pfield33 { width: 32%; }
+                    &.pfield50 { width: 48%; }
+                    &.pfield67 { width: 66%; }
+                    &.pfield100 { width: 100%; }
+                    p {width: 100%;  float: left; margin:0 0 0.4rem 0; text-align: left; @include latomedium(); color: $white2; font-size: 14px; }
+                    .participate-errormsg {display: none; width: 100%;  float: left; margin: 0.4rem 0 0 0; text-align: left; @include latomedium(); color: $red; font-size: 12px;  }
+                    .participate-input { width: 100%; float: left; background-color: $white; padding:0.8rem; margin:0; border: 0; outline: 0; text-align: left;  @include latomedium(); color: $black5; font-size: 12px; }
+                    .participate-textarea  { width: 100%; float: left; height: 40px; background-color: $white; padding:0.8rem; margin:0; border: 0; outline: 0; text-align: left;  @include latomedium(); color: $black5; font-size: 12px; resize: none; }
+                    .participate-select { width: 100%; float: left; background-color: $white; padding:0.8rem; margin:0; border: 0; outline: 0; text-align: left;  @include latomedium(); color: $black5; font-size: 12px; text-indent: 2px; text-overflow: '';background: #fff url(../images/down-arrow.png) no-repeat; background-position: right 7px center; appearance: none; }
+                    input[type="checkbox"] { display: none; }
+                    .participate-border { border: solid 1px $red; }
+                    .participate-agreeterm { position: relative; width: auto; float: left; padding:0 0 0 24px; margin:0; cursor: pointer; text-align: left;  @include latomedium(); color: $white; font-size: 14px; line-height: 20px; }
+                    .participate-agreeterm:before{ content: ''; position: absolute; left: 0; top: 0; z-index: 1; background:$black2; border-radius:0; outline: none; float: left; width: 14px; height: 14px; border: solid 1px $white; }
+                    input[type="checkbox"]:checked + .participate-agreeterm:before{ background:$blue; border-color: $blue;  }
+                    .participate-agreeterm:after{ content: ''; position: absolute; left: 2px; top: 3px; z-index: 2; opacity: 0; transform: rotate(-45deg); background:none; border-radius:0; outline: none; float: left; width:9px; height:4px; border-left: solid 2px $white;  border-bottom: solid 2px $white; }
+                    input[type="checkbox"]:checked + .participate-agreeterm:after{ opacity:1; }   
+                    .termagree {
+                         display: inline-block; text-align: left;  @include latomedium(); font-size: 14px; line-height: 20px; display: inline-block;  margin:0 0.2rem; cursor: pointer; color: $blue; @include outT(); @include tdu();
+                        &:hover { color: $white; @include tdn();  @include inT(); }
+                        &.tn2 { color: $white; text-decoration: none; cursor:auto;  }
+                        &.tn1 {  margin-left: 0.4rem; }
+                    }
+                    .participate-file { display: none; }
+                    .participate-file-label { width: 100%; float: left; background-color: $white; margin:0; border: 0; outline: 0; cursor: pointer;  }
+                    .participate-choose { display: block; width: 40%; float: left; padding:0.8rem 0.4rem; background-color: $green; text-align: center;  @include latoregular(); color: $white; font-size: 12px; }
+                    .participate-info { display: block; width:60%; float: left; padding:0.8rem 0.4rem; background-color: $white; text-align: center;  @include latoregular(); color: $black5; font-size: 12px; white-space: nowrap;overflow: hidden;text-overflow: ellipsis; }
+                    .participate-submit { 
+                        position: relative; z-index: 1; overflow: hidden; width: auto; height: auto; border: solid 1px $green4;  float: left; padding:0.7rem 1.4rem; background-color:$green4;  @include latosemibold();  line-height: 1; font-size: 16px; font-weight: 400; color:$white;  text-align: center; @include outT(); cursor: pointer;  @include fCC();
+                        &:hover { background: $black2; color: $green4;  @include inT(); }
+                        &.disabaled { 
+                            color:$white; background-color:$gray; border-color: $gray;  user-select: none; pointer-events: none; 
+                        }
+                    }
+
+                }
+                 
+            }
+            
+        }
+    }
+
+}
+ 
+
+
+
+
+
+
+
+@media only screen and (max-width:1255px) 
+{
+    .participatewrap .participate-inner .participate-body .participate-img { width: 30%; }
+    .participatewrap .participate-inner .participate-body .participate-form { width: 70%; padding: 1rem 2%; }
+    .participatewrap .participate-inner .participate-body .participate-form .participate-field { margin-top:0.7rem; margin-bottom: 0.7rem; }
+}
+@media only screen and (max-width:1023px) 
+{
+    .participatewrap { 
+        padding:2rem 0 3rem 0; 
+        .participate-inner { 
+ 
+            .participate-body { 
+                flex-direction: column-reverse;
+                .participate-img { 
+                    display: none; width: 100%; 
+                    .participate-img-desktop { display:none; }
+                    .participate-img-mobile { display:none; }
+                }
+                .participate-form { 
+                    width: 100%; padding:1rem 2%; 
+                    .participate-field {  margin-top: 0.7rem; margin-bottom: 0.7rem; }
+                }
+            }
+        }
+    
+    }
+}
+@media only screen and (max-width:767px) 
+{
+    .participatewrap { 
+        .participate-inner { 
+            .participate-heading { 
+                margin: 0 0 1.5rem 0;font-size: 24px;
+            }
+            .participate-body { 
+                .participate-form { 
+                    padding:0.8rem 1.3rem; 
+                    .participate-field { 
+                        &.pfield33 { width: 48%; }
+                        &.pfield50 { width: 48%; }
+                        &.pfield67 { width: 48%; }
+                        &.pfield100 { width: 100%; }
+                    }
+                }
+            }
+        }
+    }
+
+}
+@media only screen and (max-width:599px) 
+{
+ 
+
+    .participatewrap { 
+        .participate-inner { 
+            .participate-body { 
+                .participate-form { 
+                    .participate-field { 
+                        &.pfield33 { width: 100%; }
+                        &.pfield50 { width: 100%; }
+                        &.pfield67 { width: 100%; }
+                        &.pfield100 { width: 100%; }
+                        .participate-agreeterm:before{ top:4px; }
+                        .participate-agreeterm:after{ top: 7px;  }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width:479px) 
+{
+    .participatewrap { 
+        .participate-inner { 
+            .participate-body { 
+                .participate-img { display: block; }
+                .participate-form { 
+                    .participate-field { 
+                        width: 100%;
+                        p { margin:0 0 0.4rem 0; font-size: 12px; }
+                        .participate-errormsg { margin: 0.3rem 0 0 0; font-size: 10px;  }
+                        .participate-input { padding:0.8rem 0.8rem; font-size: 12px; }
+                        .participate-select { padding:0.8rem 0.8rem; font-size: 12px;   }
+                        .participate-textarea  { padding:0.8rem 0.8rem;  height: 70px; font-size: 12px; }
+                        .participate-agreeterm { padding:0 0 0 24px;  font-size: 12px;  }
+                        .participate-agreeterm a { margin:0 0.1rem; display: inline-block; }
+                        .termagree {font-size: 12px;  }
+                        .participate-choose { padding:0.8rem 0.3rem; font-size: 12px; }
+                        .participate-info { padding:0.8rem 0.3rem;  font-size: 12px; }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,252 @@
+
+/* ########################## get in touch ########################## */
+.getintouchcontainer { 
+    display:none; z-index:9; position: fixed; left: 0; top: 0; height: 100%; width: 100%; 
+    article { display:block; z-index:1; position: fixed; left: 0; top: 0; height: 100%; width: 100%; background-color: $black8; background:#000000E0;  }
+    section { 
+        display: block;  z-index:2;  position:absolute; left:50%; top:50%; transform: translate(-50%, -45%); width: 95%; max-width:560px; height: auto;  max-height: 90%; background:$black8 url('../images/participate-form-bg.png') no-repeat center center; background-size: cover;   border-radius:0; margin:0 auto; padding:3rem 2rem; 
+        aside { 
+            z-index: 3; position: absolute;right:0;top:-20px; width: 24px; height: 24px; border-radius:0; padding:0; background:none; border: none; cursor: pointer; 
+            span { 
+                position: absolute; top: 0; width: 24px; height: 2.5px; background-color: $white; transition:all 0.5s ease-out; 
+                &:first-child { left: 0; transform: rotate(45deg); }
+                &:last-child { right: 0; transform: rotate(-45deg); }
+            }
+            &:hover {
+                 span { background-color: $green; transition:all 0.5s ease-in;  }
+            }
+        } 
+        h2 { width: 100%; float: left; text-align: center; color:$white; line-height: 1; font-size:34px; @include cutthecrap();  }
+        h3 { width: 100%; float: left; margin:1rem 0 0 0; text-align: center; color:$white; line-height: 1; font-size:14px; @include latosemibold(); }
+        ul { 
+            width: 100%; float: left; padding-left: 25%;
+            li { 
+                list-style: none; width: 100%; float: left;  margin:2rem 0 0 0; padding:0; @include fSC(); 
+                img { width: 40px; margin-right: 1rem; }
+                p { 
+                    text-align: left; 
+                    span { display: block;  @include latosemibold(); font-size: 16px; color: $white; }
+                    a { 
+                        @include latoregular(); font-size: 14px; color: $blue; @include tdu(); @include outT();
+                        &:hover {  color: $white; @include inT(); }
+                    }
+                }
+            } 
+        }
+    }
+ }
+
+
+ 
+ /* ########################## instructionsPopup ########################## */
+.instructionsPopup { 
+    display:none; z-index:9; position: fixed; left: 0; top: 0; height: 100%; width: 100%; 
+    article { display:block; z-index:1; position: fixed; left: 0; top: 0; height: 100%; width: 100%; background-color: $black8; background:#000000E0;  }
+    section { 
+        display: block;  z-index:2;  position:absolute; left:50%; top:50%; transform: translate(-50%, -45%); width: 95%; max-width:740px; height: auto;  max-height: 90%; background:$black8 url('../images/instruction-bg.png') no-repeat center center; background-size: cover; border-radius:0; margin:0 auto; padding:3rem; 
+        aside { 
+            z-index: 3; position: absolute;right:0;top:-20px; width: 24px; height: 24px; border-radius:0; padding:0; background:none; border: none; cursor: pointer; 
+            span { 
+                position: absolute; top: 0; width: 24px; height: 2.5px; background-color: $white; transition:all 0.5s ease-out; 
+                &:first-child { left: 0; transform: rotate(45deg); }
+                &:last-child { right: 0; transform: rotate(-45deg); }
+            }
+            &:hover {
+                 span { background-color: $green; transition:all 0.5s ease-in;  }
+            }
+        } 
+        h2 { width: 100%; float: left; margin:0 0 1rem 0; text-align: center; color:$white; line-height: 1; font-size:34px; @include cutthecrap();  }
+        ul { 
+            width: 100%; float: left;  @include fSS(); flex-wrap: wrap;
+            li { 
+                position: relative; list-style: none; width: 50%; min-height: 34px; float: left;  margin:1rem 0; padding:0 1rem 0 48px; @include latosemibold(); font-size: 16px; line-height: 1.2; color: $white; @include fSC();
+                &:before { content:attr(data-id); z-index: 2; position: absolute; left: 0; top:0;  background: url('../images/icon-green.jpg') no-repeat center center; background-size: 100% 100%; height: 34px; width: 34px; @include fCC(); @include latobold(); font-size: 120%; color: $white;  }
+            } 
+        }
+    }
+ }
+ 
+
+
+
+/* ########################## otp ########################## */
+.otpcontainer { 
+    display:none; z-index:9; position: fixed; left: 0; top: 0; height: 100%; width: 100%; 
+    article { display:block; z-index:1; position: fixed; left: 0; top: 0; height: 100%; width: 100%; background-color: $black; background:#000000E0;  }
+    section { 
+        display: block;  z-index:2;  position:absolute; left:50%; top:50%; transform: translate(-50%, -50%); width: 95%; max-width:440px; height: auto;  max-height: 95%; background:$white;   border-radius:0; margin:0 auto; padding:3rem 2rem;
+        .otpback { 
+            z-index:2;  position:absolute; left:2rem; top:2rem; font-size: 30px; color: $black; font-weight:500; line-height: 1; @include outT(); cursor: pointer;
+            &:hover {  color: $green;  @include inT(); }
+        }
+        aside { 
+            width: 100%; float: left; text-align: center; margin:0 0 1.5rem 0;
+            img { width: 53px; display: inline-block; margin: 0 auto; }
+        } 
+        h2 { width: 100%; float: left; text-align: center; color:$black6; line-height: 1; font-size:16px; @include latobold();  }
+        h3 { 
+            width: 100%; float: left; margin:1rem 0 1.5rem 0; text-align: center; color:$black7; line-height: 1; font-size:14px; @include latomedium(); 
+            span { @include latosemibold();  }
+        }
+        .fourdigitotp {
+            float: left; width: 100%; margin: 0; padding: 0; text-align: center; 
+            div { 
+                width: 220px; height: 45px; margin: 0 auto; float: none; padding: 0; display: inline-block; overflow: hidden; 
+                h6 { 
+                    left: 0; position: sticky; 
+                    input[type='text'] { margin: 0; padding:0 0 0 16px; letter-spacing:45px; border: 0; outline: none; width: 250px; min-width: 250px;  background: none; background-image: linear-gradient(to left, #EBEBEB 85%, rgba(222, 222, 222, 0) 0%);background-position: bottom; background-size:60px 45px;background-repeat: repeat-x; background-position-x: 45px; font-size: 22px; line-height:45px;    color: $black !important; @include latosemibold(); }
+                }
+            }
+        }
+        p { display: none; width: 100%; float: left; margin:0.5rem 0 0 0; text-align: center; color:$red2; line-height: 1; font-size:12px; @include latomedium();  }
+        h4 { 
+            width: 100%; float: left; margin:1rem 0 0 0; text-align: center; color:$black2; line-height: 1; font-size:14px; @include latomedium(); 
+            span {  color:$black; @include latobold();  } 
+        }
+        h5 { 
+            display: none; width: 100%; float: left; margin:1.5rem 0 0 0; text-align: center; color:$black2; line-height: 1; font-size:14px; @include latomedium(); 
+            span { 
+               margin-left: 0.5rem; cursor: pointer; color: $blue; @include inT(); @include tdu();
+                &:hover { color: $green; @include outT(); }
+            }
+         }
+    }
+ }
+
+
+
+
+
+
+
+ /* ########################## alert msg ########################## */
+ .msgcontainer { 
+    display:none; z-index:9; position: fixed; left: 0; top: 0; height: 100%; width: 100%; 
+    article { display:block; z-index:1; position: fixed; left: 0; top: 0; height: 100%; width: 100%; background-color: $black; background:#000000E0;  }
+    section { 
+        display: block;  z-index:2;  position:absolute; left:50%; top:50%; transform: translate(-50%, -50%); width: 95%; max-width:380px; height: auto;  max-height: 90%; background:$white;   border-radius:0; margin:0 auto; padding:2rem;  
+        aside { 
+            width: 100%; float: left; text-align: center; margin:0 0 1rem 0;
+            img { width: 35px; display: inline-block; margin: 0 auto; }
+        } 
+        h2 { width: 100%; float: left; text-align: center; color:$black6; line-height: 1; font-size:16px; @include latobold();  }
+        h3 { width: 100%; float: left; margin:1rem 0 1.5rem 0; text-align: center; color:$black7; line-height: 1; font-size:14px; @include latomedium(); }
+        p { 
+            width: 100%; float: left; text-align:center; @include fCS();
+           span.msgbtngreen { 
+                position: relative; z-index: 1; float: none; width: 120px; height: 44px; @include fCC(); margin: 0 auto; padding:0; background-color:$green4;  border: solid 1px  $green4; @include latosemibold();  line-height: 1; font-size: 14px; font-weight: 400; color:$white;  text-align: center; @include outT(); cursor: pointer; overflow: hidden;            
+                &:hover { 
+                    background-color: $white; color: $green4; @include inT(); 
+                }
+            }
+            span.msgbtnred { 
+                position: relative; z-index: 1; float: none; width: 120px; height: 44px; @include fCC(); margin: 0 auto; padding:0; border: solid 1px $red3; background-color:$white;   @include latosemibold();  line-height: 1; font-size: 14px; font-weight: 400; color:$red3;  text-align: center; @include outT(); cursor: pointer; overflow: hidden; 
+                &:hover { border-color:$black; color: $black;  @include inT(); }
+            }
+        }
+        h4 { 
+            width: 100%; float: left; margin-top: 1rem; text-align:center; @include fCS();
+            span { 
+                 @include latosemibold();  line-height: 1; font-size: 14px; font-weight: 400; color:$blue2;  text-align: center; @include outT(); cursor: pointer; 
+                &:hover { color: $black; @include inT(); }
+            }
+        }
+    }
+ }
+
+
+
+@media only screen and (max-width:1023px) 
+{
+    /* ########################## get in touch ########################## */
+    .getintouchcontainer { 
+        section { 
+            max-width:300px; padding:2rem; 
+            aside { 
+                top:-15px; width: 20px; height: 20px;  
+                span { width: 20px; height: 2px; }
+            } 
+            h2 { font-size:24px; }
+            h3 {  margin:1rem 0 0 0; font-size:12px; line-height: 22px; }
+            ul { 
+                padding-left: 0;
+                li { 
+                    margin:1.5rem 0 0 0;
+                    img { width: 34px; margin-right:0.8rem; }
+                    p { 
+                        span {  font-size: 12px;  }
+                        a { font-size: 12px; }
+                    }
+                } 
+            }
+        }
+     }
+
+
+    /* ########################## instructionsPopup ########################## */
+    .instructionsPopup { 
+        section { 
+            padding:2rem; 
+            aside { 
+                top:-15px; width: 20px; height: 20px;  
+                span { width: 20px; height: 2px; }
+            } 
+            h2 { font-size:24px;   }
+            ul { 
+                li { font-size: 14px; } 
+            }
+        }
+    }
+ 
+
+    /* ########################## otp ########################## */
+    .otpcontainer { 
+        section { 
+            max-width:300px; padding:2rem 1rem;
+            .otpback { left: 1rem; top: 2rem; font-size: 24px; }
+            aside { 
+                margin:0 0 1rem 0;
+                img { width:49px; }
+            } 
+            h2 { font-size:14px; }
+            h3 { margin:0.5rem 0 1rem 0; font-size:12px; }
+            h4 { margin:1rem 0 0 0; font-size:12px;  }
+            h5 { margin:1.5rem 0 0 0;  font-size:12px; }
+        }
+     }
+
+     
+     /* ########################## alert msg ########################## */
+     .msgcontainer { 
+        section { 
+            max-width:300px; 
+            aside { 
+                img { width: 46px;  }
+            } 
+            h2 { font-size:14px; }
+            h3 {  margin:0.7rem 0 1.5rem 0;  font-size:12px; }
+            p { 
+               span.msgbtngreen { width: 84px; height:36px; font-size: 14px; }
+               span.msgbtnred {  width: 84px; height:36px; font-size: 14px; }
+            }
+        }
+     }
+
+
+
+}
+
+
+@media only screen and (max-width:599px) 
+{
+
+    /* ########################## instructionsPopup ########################## */
+    .instructionsPopup { 
+        section { 
+            max-width: 300px;
+            ul { 
+                li { width: 100%; @include latomedium(); margin: 0.7rem 0; padding-right: 0; } 
+            }
+        }
+    }
+}
